@@ -15,6 +15,10 @@ Un seul système visuel, une couleur par projet.
 
 ## Projets
 
+- `animalink` — corail `#f87171`
+- `animalink-lead` — violet clair `#c084fc`
+- `opoil` — turquoise `#5eead4`
+- `trader-ia` — vert `#22c55e`
 - `SalvadorCardona` — sky `#38bdf8`
 - `salvadorcardona.github.io` — sky `#38bdf8`
 - `whisper-desk` — ambre `#fbbf24`
