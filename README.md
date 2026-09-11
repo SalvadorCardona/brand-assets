@@ -9,15 +9,16 @@ Un seul système visuel, une couleur par projet.
 
 - **Fond** : `#0f172a` (slate-900, repris du favicon du portfolio)
 - **Glyphe** : icône de ligne façon Lucide, traits fins, extrémités arrondies, sans remplissage
+- **Logo existant** : un projet qui a déjà le sien le garde, avec sa couleur de marque — c'est le cas d'Opoil
 - **Icône** : 1024 × 1024, carré à coins arrondis, marge généreuse
-- **Bannière** : 1536 × 672 (21:9), glyphe à gauche, nom du projet en blanc, sous-titre en gris ardoise, halo de la couleur du projet en bas à droite
+- **Bannière** : 1536 × 672 (21:9), glyphe à gauche, nom du projet en blanc, sous-titre **en anglais** en gris ardoise, halo de la couleur du projet en bas à droite
 - **Génération** : `google/gemini-2.5-flash-image` via OpenRouter
 
 ## Projets
 
 - `animalink` — corail `#f87171`
 - `animalink-lead` — violet clair `#c084fc`
-- `opoil` — turquoise `#5eead4`
+- `opoil` — bleu pétrole `#38869c`, logo maison repris de [SalvadorCardona/opoil](https://github.com/SalvadorCardona/opoil) : `pwa/public/logo/opoil-mark.svg`
 - `trader-ia` — vert `#22c55e`
 - `SalvadorCardona` — sky `#38bdf8`
 - `salvadorcardona.github.io` — sky `#38bdf8`
