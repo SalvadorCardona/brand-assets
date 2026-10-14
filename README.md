@@ -25,7 +25,7 @@ Un seul système visuel, une couleur par projet.
 - `whisper-desk` — ambre `#fbbf24`
 - `ticket-runner` — violet `#a78bfa`
 - `gnome-claude-usage` — émeraude `#34d399`
-- `mobile-factory` — orange `#fb923c`
+- `adam` — orange `#fb923c` (anciennement `mobile-factory`)
 - `des-3d` — rose `#fb7185`
 - `react-resource-view` — cyan `#22d3ee`
 - `react-data-form` — lime `#a3e635`
