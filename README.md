@@ -1,9 +1,24 @@
-![Salvador Cardona](https://raw.githubusercontent.com/SalvadorCardona/brand-assets/main/projects/SalvadorCardona/banner.png)
+![Hermez](https://raw.githubusercontent.com/SalvadorCardona/brand-assets/main/projects/hermez/banner.png)
 
 # brand-assets
 
-Icônes et bannières des projets open source de [@SalvadorCardona](https://github.com/SalvadorCardona).
+Identité de Hermez, l'agence digitale qui porte les produits, et icônes et bannières
+de ses projets open source (dépôts [@SalvadorCardona](https://github.com/SalvadorCardona)).
 Un seul système visuel, une couleur par projet.
+
+## Hermez
+
+- **Nom** : « Hermez » en anglais, « Hermez agency » quand il faut préciser
+- **Logo** (provisoire) : un H à trois plumes d'aile, glyphe de ligne comme les autres — `projects/hermez/icon.png`. Tracé en SVG et rendu par Chrome headless, pas par Gemini, comme la bannière du portfolio
+- **Couleur** : argent `#e2e8f0`, neutre, pour ne se confondre avec aucun produit
+- **Signature** : en pied de page de chaque produit, en texte et en anglais :
+
+  ```
+  A Hermez product
+  ```
+
+  Le nom de l'éditeur (nom, raison sociale, SIRET) reste dans les mentions légales,
+  qui sont obligatoires ; il n'apparaît pas ailleurs dans l'interface.
 
 ## Charte
 
@@ -16,12 +31,13 @@ Un seul système visuel, une couleur par projet.
 
 ## Projets
 
+- `hermez` — argent `#e2e8f0`, l'agence elle-même
 - `animalink` — corail `#f87171`
 - `animalink-lead` — violet clair `#c084fc`
 - `opoil` — bleu pétrole `#38869c`, logo maison repris de [SalvadorCardona/opoil](https://github.com/SalvadorCardona/opoil) : `pwa/public/logo/opoil-mark.svg`
 - `trader-ia` — vert `#22c55e`
 - `SalvadorCardona` — sky `#38bdf8`
-- `salvadorcardona.github.io` — sky `#38bdf8`
+- `salvadorcardona.github.io` — sky `#38bdf8`, site de Hermez : la bannière porte le logo Hermez
 - `whisper-desk` — ambre `#fbbf24`
 - `ticket-runner` — violet `#a78bfa`
 - `gnome-claude-usage` — émeraude `#34d399`

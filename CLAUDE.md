@@ -1,6 +1,6 @@
 # brand-assets
 
-Icônes et bannières des projets open source de [@SalvadorCardona](https://github.com/SalvadorCardona), rassemblées dans un système visuel unique.
+Identité de Hermez (l'agence digitale qui porte les produits) et icônes et bannières des projets open source de [@SalvadorCardona](https://github.com/SalvadorCardona), rassemblées dans un système visuel unique.
 
 ## Stack
 
@@ -50,5 +50,7 @@ Chaque projet a son propre dossier sous `projects/`, nommé exactement comme le 
 - **Une couleur par projet** — voir le tableau du README pour la liste complète, ne pas la dupliquer ici
 
 ## Pièges connus
+
+- Les produits sont signés Hermez (« A Hermez product »), pas « Salvador Cardona » ni « l'agence Cardona » : ce nom ne s'affiche que dans les mentions légales. Les dossiers `SalvadorCardona` et `salvadorcardona.github.io` gardent leur nom parce qu'ils suivent celui du dépôt GitHub.
 
 - Un projet qui a déjà son propre logo (ex. Opoil) **ne doit pas être régénéré** : on garde son logo maison et sa couleur de marque, on ne le remplace pas par le glyphe générique.
