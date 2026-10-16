@@ -337,7 +337,7 @@ function Landing() {
       {/* Pied de page */}
       <footer className="flex flex-col gap-4 border-t border-border px-6 py-8 text-sm text-muted-foreground @2xl:flex-row @2xl:items-center @2xl:justify-between @3xl:px-12">
         <span className="flex items-center gap-2">
-          <HermezMark className="size-5 text-foreground" />A Hermez product
+          <HermezMark className="size-5" />A Hermez product
         </span>
         <span className="flex gap-5">
           <span>Mentions légales</span>

@@ -34,6 +34,13 @@
   --heading-weight: 800;
   --heading-tracking: -0.025em;
 
+  /* Logo Hermez : couleurs et police du logotype (voir la page « Logo Hermez ») */
+  --typeface-logo: 'Outfit', ui-sans-serif, system-ui, sans-serif;
+  --hermez-orange: #e8611a;
+  --hermez-orange-on-dark: #f2803f;
+  --hermez-ink: #18181b;
+  --hermez-dark: #141414;
+
   /* Rayon de base, les autres en dérivent */
   --radius: 0.75rem;
 
@@ -106,6 +113,11 @@
   --font-sans: var(--typeface-body);
   --font-heading: var(--typeface-heading);
   --font-mono: var(--typeface-mono);
+  --font-logo: var(--typeface-logo);
+  --color-hermez-orange: var(--hermez-orange);
+  --color-hermez-orange-on-dark: var(--hermez-orange-on-dark);
+  --color-hermez-ink: var(--hermez-ink);
+  --color-hermez-dark: var(--hermez-dark);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
