@@ -4,11 +4,27 @@ Icônes et bannières des projets open source de [@SalvadorCardona](https://gith
 
 ## Stack
 
-Aucune. Ce dépôt ne contient que des images (`.png`) organisées par projet. Pas de code applicatif, pas de dépendances.
+- `projects/` : des images (`.png`) organisées par projet, sans code.
+- `site/` : le site du design system — React 19, Vite, Tailwind CSS v4, composants shadcn (base-luma) et `react-resource-view` (gabarit d'administration `AdminLayout`). Statique, sans backend, publié sur GitHub Pages par `.github/workflows/pages.yml` à chaque push sur `main`. Gestionnaire : pnpm.
 
 ## Commandes
 
-Il n'y a ni installation, ni build, ni test, ni lint : rien à exécuter ici. Ne pas inventer de commandes `npm install`, `npm run build`, etc. — elles n'existent pas dans ce dépôt.
+Rien à exécuter à la racine. Dans `site/` :
+
+- `pnpm install`
+- `pnpm dev` : serveur de développement (port 3000)
+- `pnpm typecheck`
+- `pnpm build` : sortie dans `site/dist` ; `SITE_BASE=/brand-assets/` pour le préfixe de GitHub Pages
+
+Il n'y a ni test ni lint.
+
+## Site (`site/`)
+
+- Les tokens vivent dans `site/src/styles.css`, seule source. Les pages de tokens relisent les variables dans le navigateur (`useCssVar`), elles ne les recopient pas.
+- Les composants shadcn sont dans `site/src/ui` (copie de ceux de Resource View).
+- Chaque page est une ressource Resource View (`definePage` dans `src/lib/doc.tsx`) ; le menu est dans `src/pages/index.ts`. Une page par famille de tokens (`src/pages/tokens`) et par composant (`src/pages/components/index.tsx`) : ajouter un token ou un composant, c'est ajouter sa page.
+- Routage en mode `query` (`?view=…`) : GitHub Pages n'a pas de serveur pour les chemins profonds.
+- Communication abstraite : une agence digitale avec plusieurs produits, sans mettre un nom de personne en avant.
 
 ## Génération des visuels
 

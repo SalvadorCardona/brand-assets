@@ -46,3 +46,11 @@ En tête du README d'un projet :
 ```
 
 L'icône sert de `favicon`, d'icône d'application et d'icône de page Notion.
+
+## Site du design system
+
+Tokens, composants shadcn et implémentation [Resource View](https://github.com/SalvadorCardona/react-resource-view), une page chacun, plus une vue d'ensemble : <https://salvadorcardona.github.io/brand-assets/>.
+
+```bash
+cd site && pnpm install && pnpm dev
+```

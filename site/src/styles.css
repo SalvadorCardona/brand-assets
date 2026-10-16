@@ -1,0 +1,125 @@
+@import "tailwindcss";
+@source "../node_modules/react-resource-view/dist";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Les tokens du design system. Une seule source : ce fichier. Les pages du site
+ * relisent ces variables dans le navigateur, elles ne les recopient pas.
+ */
+
+:root,
+.dark {
+  /* Couleurs sémantiques (thème shadcn) */
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #162238;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  --primary: #38bdf8;
+  --primary-foreground: #0f172a;
+  --secondary: #1e293b;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #26344d;
+  --accent-foreground: #f8fafc;
+  --destructive: #f87171;
+  --destructive-foreground: #0f172a;
+  --success: #10b981;
+  --info: #3b82f6;
+  --glory: #a855f7;
+  --warning: #f59e0b;
+  --border: #94a3b82e;
+  --input: #94a3b838;
+  --ring: #38bdf8;
+
+  /* Palette de données */
+  --chart-1: #38bdf8;
+  --chart-2: #34d399;
+  --chart-3: #fbbf24;
+  --chart-4: #a78bfa;
+  --chart-5: #fb7185;
+
+  /* Rayon de base, les autres en dérivent */
+  --radius: 0.875rem;
+
+  /* Mouvement */
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+  --duration-slow: 400ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-info: var(--info);
+  --color-glory: var(--glory);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, sans-serif;
+  --font-mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+
+  --shadow-sm: 0 1px 2px 0 rgb(2 6 23 / 0.4);
+  --shadow-md: 0 4px 12px -2px rgb(2 6 23 / 0.5);
+  --shadow-lg: 0 12px 28px -6px rgb(2 6 23 / 0.6);
+  --shadow-glow: 0 0 32px -4px rgb(56 189 248 / 0.35);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .fc::first-letter {
+    text-transform: uppercase;
+  }
+
+  .animate-spin-slow {
+    animation: rrv-spin 3s linear infinite;
+  }
+}
+
+@keyframes rrv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
