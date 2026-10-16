@@ -9,7 +9,8 @@ Un seul système visuel, une même couleur pour tous les produits.
 ## Hermez
 
 - **Nom** : « Hermez » en anglais, « Hermez agency » quand il faut préciser
-- **Logo** (provisoire) : un H à trois plumes d'aile, glyphe de ligne comme les autres — `projects/hermez/icon.png`. Tracé en SVG et rendu par Chrome headless, pas par Gemini, comme la bannière du portfolio
+- **Logo** : un h et son point dans un carré arrondi bordé d'orange (variante 4D « contour »), suivi de « hermez » en Outfit 700. Fichiers SVG (texte vectorisé), PNG, favicon et image de partage dans `site/public/hermez/`, publiés sur <https://salvadorcardona.github.io/brand-assets/hermez/> (ex. `hermez-logo.svg`, `hermez-symbol.svg`) ; règles d'usage sur la page « Logo Hermez » du site. Couleurs : orange `#e8611a` (`#f2803f` sur fond sombre), encre `#18181b`, fond sombre `#141414`
+- **Logos obsolètes** : le « C » de l'agence Cardona et le H à trois plumes d'aile (`projects/hermez/icon.png`, `banner.png`) ne sont plus le logo actuel ; ne plus les reprendre
 - **Couleur** : argent `#e2e8f0`, neutre, pour ne se confondre avec aucun produit
 - **Signature** : en pied de page de chaque produit, en texte et en anglais :
 
