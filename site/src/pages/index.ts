@@ -1,6 +1,7 @@
-import { Component, Palette, Server } from "lucide-react"
+import { Component, LayoutTemplate, Palette, Server } from "lucide-react"
 import type { ScopeMenuEntry } from "react-resource-view"
 import { componentResources } from "./components"
+import landingResource from "./examples/landing"
 import overviewResource from "./overview"
 import { adminResource, listsResource, productsResource } from "./resource-view"
 import brandColors from "./tokens/brand-colors"
@@ -13,6 +14,7 @@ import typography from "./tokens/typography"
 
 const tokenResources = [colors, brandColors, typography, spacing, radius, shadows, motion]
 const implementationResources = [listsResource, adminResource]
+const exampleResources = [landingResource]
 
 /** Toutes les pages du site, dans l'ordre du menu. */
 export const pages = [
@@ -20,6 +22,7 @@ export const pages = [
   ...tokenResources,
   ...componentResources,
   ...implementationResources,
+  ...exampleResources,
 ]
 
 /** Les ressources que le site sait afficher : les pages, plus celles que les démos montrent. */
@@ -30,6 +33,7 @@ export const menu: ScopeMenuEntry[] = [
   { name: "Tokens", icon: Palette, items: tokenResources },
   { name: "Composants", icon: Component, items: componentResources },
   { name: "Resource View", icon: Server, items: implementationResources },
+  { name: "Exemples", icon: LayoutTemplate, items: exampleResources },
 ]
 
 export { overviewResource }

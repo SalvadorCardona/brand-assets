@@ -2,65 +2,82 @@ import { Swords } from "lucide-react"
 import { definePage, Section } from "@/lib/doc"
 
 /**
- * Une couleur par produit, sur le fond commun. Mêmes valeurs que le tableau du
- * README, qui reste la référence pour les visuels.
+ * La couleur commune des produits, celle de leur halo et de leur glyphe. Mêmes
+ * valeurs que le README, qui reste la référence pour les visuels.
  */
-export const productColors: [string, string, string][] = [
-  ["animalink", "Corail", "#f87171"],
-  ["animalink-lead", "Violet clair", "#c084fc"],
-  ["opoil", "Bleu pétrole", "#38869c"],
-  ["trader-ia", "Vert", "#22c55e"],
-  ["whisper-desk", "Ambre", "#fbbf24"],
-  ["ticket-runner", "Violet", "#a78bfa"],
-  ["gnome-claude-usage", "Émeraude", "#34d399"],
-  ["adam", "Orange", "#fb923c"],
-  ["des-3d", "Rose", "#fb7185"],
-  ["react-resource-view", "Cyan", "#22d3ee"],
-  ["react-data-form", "Lime", "#a3e635"],
-  ["jsonld-api-client", "Turquoise", "#2dd4bf"],
-  ["jsonld-repository", "Bleu", "#60a5fa"],
-  ["jsonld-item", "Indigo", "#818cf8"],
-  ["resource-registry", "Fuchsia", "#e879f9"],
-  ["react-jwt-session", "Jaune", "#facc15"],
-  ["react-mini-i18n", "Rose vif", "#f472b6"],
-  ["ssr-safe-storage", "Vert tendre", "#4ade80"],
+export const productColor = { label: "Sky", hex: "#38bdf8" }
+
+/** Les produits qui portent la couleur commune. */
+export const products = [
+  "trader-ia",
+  "whisper-desk",
+  "ticket-runner",
+  "gnome-claude-usage",
+  "adam",
+  "des-3d",
+  "react-resource-view",
+  "react-data-form",
+  "jsonld-api-client",
+  "jsonld-repository",
+  "jsonld-item",
+  "resource-registry",
+  "react-jwt-session",
+  "react-mini-i18n",
+  "ssr-safe-storage",
+]
+
+/** Les produits qui avaient déjà leur marque : ils gardent leur logo et leur couleur. */
+export const productExceptions = [
+  { name: "opoil", label: "Bleu pétrole", hex: "#38869c", reason: "Logo maison" },
 ]
 
 export default definePage({
   id: "tokens-brand-colors",
-  name: "Couleurs produits",
+  name: "Couleur produits",
   icon: Swords,
   intro:
-    "Chaque produit a sa couleur, qui colore son halo et son glyphe. Le fond, lui, ne change jamais : c'est ce qui fait la famille.",
+    "Tous les produits partagent la même couleur, qui colore leur halo et leur glyphe, sur le même fond. C'est ce qui fait la famille.",
   view: () => (
-    <Section
-      title="Une couleur par produit"
-      intro="Un produit qui a déjà son propre logo le garde, avec sa couleur de marque."
-    >
-      <ul className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-        {productColors.map(([name, label, hex]) => (
-          <li
-            key={name}
-            className="relative flex items-center gap-3 overflow-hidden rounded-xl border border-border bg-background p-3"
-          >
-            <span
-              aria-hidden
-              className="absolute -right-6 -bottom-8 size-24 rounded-full opacity-30 blur-2xl"
-              style={{ background: hex }}
-            />
-            <span
-              className="relative size-12 shrink-0 rounded-lg border border-border"
-              style={{ background: hex }}
-            />
-            <span className="relative min-w-0 text-sm">
-              <span className="block truncate font-medium">{name}</span>
-              <span className="block text-muted-foreground">
-                {label} · <span className="font-mono text-xs uppercase">{hex}</span>
+    <>
+      <Section title="La couleur commune">
+        <div className="flex items-center gap-4 rounded-lg border border-border bg-card p-4">
+          <span
+            className="size-16 shrink-0 rounded-lg border border-border"
+            style={{ background: productColor.hex }}
+          />
+          <div>
+            <p className="font-medium">{productColor.label}</p>
+            <p className="font-mono text-sm text-muted-foreground uppercase">{productColor.hex}</p>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Les produits" intro={`${products.length} produits, une seule couleur.`}>
+        <ul className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm sm:grid-cols-3">
+          {products.map((name) => (
+            <li key={name} className="truncate">
+              {name}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
+      <Section
+        title="Exception"
+        intro="Un produit qui avait déjà son propre logo le garde, avec sa couleur de marque."
+      >
+        <ul className="space-y-2">
+          {productExceptions.map(({ name, label, hex, reason }) => (
+            <li key={name} className="flex items-center gap-3 text-sm">
+              <span className="size-3 shrink-0 rounded-full" style={{ background: hex }} />
+              <span className="font-medium">{name}</span>
+              <span className="text-muted-foreground">
+                {reason} · {label} <span className="font-mono text-xs uppercase">{hex}</span>
               </span>
-            </span>
-          </li>
-        ))}
-      </ul>
-    </Section>
+            </li>
+          ))}
+        </ul>
+      </Section>
+    </>
   ),
 })

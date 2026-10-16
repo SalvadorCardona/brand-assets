@@ -3,6 +3,7 @@ import {
   AppWindow,
   Bell,
   BookOpen,
+  ChartColumn,
   CheckSquare,
   ChevronsUpDown,
   CreditCard,
@@ -20,12 +21,14 @@ import {
   ShieldAlert,
   Star,
 } from "lucide-react"
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, Line, LineChart, XAxis } from "recharts"
 import { toast } from "sonner"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/ui/alert-dialog"
 import { Badge } from "@/ui/badge"
 import { Button } from "@/ui/button"
 import { ButtonGroup, ButtonGroupSeparator, ButtonGroupText } from "@/ui/button-group"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/ui/card"
+import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/ui/chart"
 import { Checkbox } from "@/ui/checkbox"
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/ui/dialog"
 import { Field, FieldDescription, FieldError, FieldGroup, FieldLabel, FieldLegend, FieldSet } from "@/ui/field"
@@ -57,6 +60,21 @@ interface ComponentPage {
 }
 
 const row = "flex flex-wrap items-center gap-3"
+
+const chartData = [
+  { month: "Jan", web: 186, mobile: 80 },
+  { month: "Fév", web: 305, mobile: 200 },
+  { month: "Mar", web: 237, mobile: 120 },
+  { month: "Avr", web: 173, mobile: 190 },
+  { month: "Mai", web: 209, mobile: 130 },
+  { month: "Juin", web: 264, mobile: 140 },
+]
+
+// Les séries nomment un token de la palette de données, jamais un hexadécimal.
+const chartConfig = {
+  web: { label: "Web", color: "var(--chart-1)" },
+  mobile: { label: "Mobile", color: "var(--chart-2)" },
+} satisfies ChartConfig
 
 const pages: ComponentPage[] = [
   {
@@ -200,7 +218,7 @@ const pages: ComponentPage[] = [
                 <DialogTitle>Renommer le projet</DialogTitle>
                 <DialogDescription>Le nom apparaît sur la bannière.</DialogDescription>
               </DialogHeader>
-              <Input defaultValue="animalink" />
+              <Input defaultValue="trader-ia" />
               <DialogFooter>
                 <Button>Enregistrer</Button>
               </DialogFooter>
@@ -459,8 +477,8 @@ const pages: ComponentPage[] = [
             </TableHeader>
             <TableBody>
               <TableRow>
-                <TableCell>animalink</TableCell>
-                <TableCell>Corail</TableCell>
+                <TableCell>adam</TableCell>
+                <TableCell>Orange</TableCell>
                 <TableCell><Badge>Actif</Badge></TableCell>
               </TableRow>
               <TableRow>
@@ -605,6 +623,72 @@ toast.success("Publié")`,
   <Button variant="outline">Jour</Button>
   <Button variant="outline">Semaine</Button>
 </ButtonGroup>`,
+  },
+  {
+    id: "chart",
+    name: "Graphique",
+    icon: ChartColumn,
+    intro:
+      "Des graphiques Recharts habillés par le thème : chaque série prend un token de la palette de données, l'infobulle et la légende suivent les surfaces.",
+    file: "chart",
+    demos: [
+      {
+        label: "Barres",
+        node: (
+          <ChartContainer config={chartConfig} className="h-64 w-full">
+            <BarChart accessibilityLayer data={chartData}>
+              <CartesianGrid vertical={false} />
+              <XAxis dataKey="month" tickLine={false} tickMargin={10} axisLine={false} />
+              <ChartTooltip content={<ChartTooltipContent />} />
+              <ChartLegend content={<ChartLegendContent />} />
+              <Bar dataKey="web" fill="var(--color-web)" radius={4} />
+              <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+            </BarChart>
+          </ChartContainer>
+        ),
+      },
+      {
+        label: "Aires empilées",
+        node: (
+          <ChartContainer config={chartConfig} className="h-64 w-full">
+            <AreaChart accessibilityLayer data={chartData} margin={{ left: 12, right: 12 }}>
+              <CartesianGrid vertical={false} />
+              <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
+              <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="dot" />} />
+              <Area dataKey="mobile" type="natural" fill="var(--color-mobile)" fillOpacity={0.3} stroke="var(--color-mobile)" stackId="a" />
+              <Area dataKey="web" type="natural" fill="var(--color-web)" fillOpacity={0.3} stroke="var(--color-web)" stackId="a" />
+            </AreaChart>
+          </ChartContainer>
+        ),
+      },
+      {
+        label: "Lignes",
+        node: (
+          <ChartContainer config={chartConfig} className="h-64 w-full">
+            <LineChart accessibilityLayer data={chartData} margin={{ left: 12, right: 12 }}>
+              <CartesianGrid vertical={false} />
+              <XAxis dataKey="month" tickLine={false} axisLine={false} tickMargin={8} />
+              <ChartTooltip cursor={false} content={<ChartTooltipContent indicator="line" />} />
+              <Line dataKey="web" type="monotone" stroke="var(--color-web)" strokeWidth={2} dot={false} />
+              <Line dataKey="mobile" type="monotone" stroke="var(--color-mobile)" strokeWidth={2} dot={false} />
+            </LineChart>
+          </ChartContainer>
+        ),
+      },
+    ],
+    usage: `const chartConfig = {
+  web: { label: "Web", color: "var(--chart-1)" },
+  mobile: { label: "Mobile", color: "var(--chart-2)" },
+} satisfies ChartConfig
+
+<ChartContainer config={chartConfig} className="h-64 w-full">
+  <BarChart data={data}>
+    <CartesianGrid vertical={false} />
+    <XAxis dataKey="month" tickLine={false} axisLine={false} />
+    <ChartTooltip content={<ChartTooltipContent />} />
+    <Bar dataKey="web" fill="var(--color-web)" radius={4} />
+  </BarChart>
+</ChartContainer>`,
   },
 ]
 

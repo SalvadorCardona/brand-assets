@@ -4,7 +4,7 @@
 
 Identité de Hermez, l'agence digitale qui porte les produits, et icônes et bannières
 de ses projets open source (dépôts [@SalvadorCardona](https://github.com/SalvadorCardona)).
-Un seul système visuel, une couleur par projet.
+Un seul système visuel, une même couleur pour tous les produits.
 
 ## Hermez
 
@@ -26,32 +26,37 @@ Un seul système visuel, une couleur par projet.
 - **Glyphe** : icône de ligne façon Lucide, traits fins, extrémités arrondies, sans remplissage
 - **Logo existant** : un projet qui a déjà le sien le garde, avec sa couleur de marque — c'est le cas d'Opoil
 - **Icône** : 1024 × 1024, carré à coins arrondis, marge généreuse
-- **Bannière** : 1536 × 672 (21:9), glyphe à gauche, nom du projet en blanc, sous-titre **en anglais** en gris ardoise, halo de la couleur du projet en bas à droite
+- **Bannière** : 1536 × 672 (21:9), glyphe à gauche, nom du projet en blanc, sous-titre **en anglais** en gris ardoise, halo sky en bas à droite (sauf Hermez et Opoil)
 - **Génération** : `google/gemini-2.5-flash-image` via OpenRouter
 
 ## Projets
 
-- `hermez` — argent `#e2e8f0`, l'agence elle-même
-- `animalink` — corail `#f87171`
-- `animalink-lead` — violet clair `#c084fc`
+Tous les produits portent la même couleur : **sky `#38bdf8`**, pour le halo et le glyphe.
+
+Exceptions :
+
+- `hermez` — argent `#e2e8f0`, l'agence elle-même, pour ne se confondre avec aucun produit
 - `opoil` — bleu pétrole `#38869c`, logo maison repris de [SalvadorCardona/opoil](https://github.com/SalvadorCardona/opoil) : `pwa/public/logo/opoil-mark.svg`
-- `trader-ia` — vert `#22c55e`
-- `SalvadorCardona` — sky `#38bdf8`
-- `salvadorcardona.github.io` — sky `#38bdf8`, site de Hermez : la bannière porte le logo Hermez
-- `whisper-desk` — ambre `#fbbf24`
-- `ticket-runner` — violet `#a78bfa`
-- `gnome-claude-usage` — émeraude `#34d399`
-- `adam` — orange `#fb923c` (anciennement `mobile-factory`)
-- `des-3d` — rose `#fb7185`
-- `react-resource-view` — cyan `#22d3ee`
-- `react-data-form` — lime `#a3e635`
-- `jsonld-api-client` — turquoise `#2dd4bf`
-- `jsonld-repository` — bleu `#60a5fa`
-- `jsonld-item` — indigo `#818cf8`
-- `resource-registry` — fuchsia `#e879f9`
-- `react-jwt-session` — jaune `#facc15`
-- `react-mini-i18n` — rose vif `#f472b6`
-- `ssr-safe-storage` — vert `#4ade80`
+
+Les autres projets, en sky :
+
+- `SalvadorCardona`
+- `salvadorcardona.github.io` — site de Hermez : la bannière porte le logo Hermez
+- `trader-ia`
+- `whisper-desk`
+- `ticket-runner`
+- `gnome-claude-usage`
+- `adam` (anciennement `mobile-factory`)
+- `des-3d`
+- `react-resource-view`
+- `react-data-form`
+- `jsonld-api-client`
+- `jsonld-repository`
+- `jsonld-item`
+- `resource-registry`
+- `react-jwt-session`
+- `react-mini-i18n`
+- `ssr-safe-storage`
 
 ## Utilisation
 
