@@ -1,5 +1,5 @@
 import { Type } from "lucide-react"
-import { definePage, Example, Section } from "@/lib/doc"
+import { definePage, Example, Section, useCssVar } from "@/lib/doc"
 
 const scale: [string, string, string][] = [
   ["text-xs", "0.75 rem · 12 px", "text-xs"],
@@ -17,26 +17,61 @@ const weights: [string, string][] = [
   ["font-semibold", "font-semibold"],
 ]
 
+/** Le nom de la première police d'une pile : celle qui s'affiche. */
+function FontName({ token }: { token: string }) {
+  const stack = useCssVar(token)
+  const name = stack.split(",")[0]?.replace(/['"]/g, "").replace(/ Variable$/, "")
+  return <>{name || "…"}</>
+}
+
+/** Un réglage des titres, relu dans la feuille de style. */
+function HeadingSetting({ token, label }: { token: string; label: string }) {
+  const value = useCssVar(token)
+  return (
+    <div className="rounded-lg border border-border bg-card p-4">
+      <p className="font-mono text-sm">{value || "…"}</p>
+      <p className="mt-1 text-xs text-muted-foreground">{label}</p>
+    </div>
+  )
+}
+
 export default definePage({
   id: "tokens-typography",
   name: "Typographie",
   icon: Type,
   intro:
-    "Une seule famille sans empattement, une échelle courte, trois graisses. Les titres sont serrés, le texte courant respire.",
+    "Bricolage Grotesque, très grasse, pour les titres ; la police du système pour le texte. Une échelle courte, trois graisses.",
   view: () => (
     <>
-      <Section title="Familles" intro="Le sans-serif pour l'interface, la chasse fixe pour le code.">
-        <Example label="font-sans">
-          <p className="font-sans text-3xl font-semibold tracking-tight">
-            Une agence, plusieurs produits
-          </p>
-          <p className="mt-2 font-sans text-muted-foreground">
-            Portez un toast à ce vieux juge blond qui fume.
+      <Section
+        title="Familles"
+        intro="Une police de caractère pour les titres, celle du système pour le reste."
+      >
+        <Example label="font-heading · titres">
+          <h3 className="text-3xl">Une agence, plusieurs produits</h3>
+          <p className="mt-2 font-mono text-xs text-muted-foreground">
+            <FontName token="--typeface-heading" />
           </p>
         </Example>
-        <Example label="font-mono">
+        <Example label="font-sans · texte">
+          <p className="text-lg">Portez un toast à ce vieux juge blond qui fume.</p>
+          <p className="mt-2 font-mono text-xs text-muted-foreground">
+            <FontName token="--typeface-body" />
+          </p>
+        </Example>
+        <Example label="font-mono · code">
           <p className="font-mono text-sm">createViewResource("articles", {"{ … }"})</p>
+          <p className="mt-2 font-mono text-xs text-muted-foreground">
+            <FontName token="--typeface-mono" />
+          </p>
         </Example>
+      </Section>
+
+      <Section title="Titres" intro="Tous les titres prennent cette graisse et cette approche, quelle que soit la page.">
+        <div className="grid gap-3 sm:grid-cols-2">
+          <HeadingSetting token="--heading-weight" label="Graisse des titres" />
+          <HeadingSetting token="--heading-tracking" label="Approche des titres" />
+        </div>
       </Section>
 
       <Section title="Échelle" intro="Sept tailles suffisent à toute l'interface.">
@@ -66,7 +101,7 @@ export default definePage({
         <Example label="Exemple">
           <h3 className="text-2xl font-semibold tracking-tight">Titre de section</h3>
           <p className="mt-2 max-w-xl text-lg text-muted-foreground">
-            Le chapeau en gris ardoise annonce ce qui suit.
+            Le chapeau en gris pierre annonce ce qui suit.
           </p>
           <p className="mt-4 max-w-xl text-sm leading-relaxed">
             Le texte courant reste lisible : quatorze pixels, interligne généreux, une

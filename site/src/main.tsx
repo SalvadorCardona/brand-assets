@@ -12,6 +12,7 @@ import { Github } from "lucide-react"
 import { menu, overviewResource, resources } from "./pages"
 import { seedDemoData } from "./pages/resource-view"
 import { Logo } from "./logo"
+import "./fonts"
 import "./styles.css"
 
 /**

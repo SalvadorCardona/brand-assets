@@ -19,7 +19,7 @@ interface Product {
 }
 
 const PRODUCTS: Product[] = [
-  { "@id": "/api/products/1", "@type": "Product", id: "1", name: "Animalink", tagline: "Le réseau des animaux", active: true },
+  { "@id": "/api/products/1", "@type": "Product", id: "1", name: "Ticket Runner", tagline: "Les tickets, menés à terme", active: true },
   { "@id": "/api/products/2", "@type": "Product", id: "2", name: "Trader IA", tagline: "Des signaux, sans bruit", active: true },
   { "@id": "/api/products/3", "@type": "Product", id: "3", name: "Whisper Desk", tagline: "La dictée au bureau", active: false },
 ]

@@ -22,6 +22,8 @@ Il n'y a ni test ni lint.
 
 - Les tokens vivent dans `site/src/styles.css`, seule source. Les pages de tokens relisent les variables dans le navigateur (`useCssVar`), elles ne les recopient pas.
 - Les composants shadcn sont dans `site/src/ui` (copie de ceux de Resource View).
+- Un seul thème, celui du portfolio de l'agence (`salvadorcardona.github.io`) : gris « stone », orange `#e46212` (en `#bf4a02` sous un texte blanc), Bricolage Grotesque pour les titres (Fontsource, `src/fonts.ts`), police du système pour le texte. Clair seulement : `dark:` ne dépend que d'une classe `.dark` jamais posée.
+- Les titres (`h1`–`h6`) prennent la police, la graisse et l'approche du thème par une règle hors couche dans `styles.css` : elle prime sur les utilitaires `font-semibold` ou `tracking-tight` posés dans les pages.
 - Chaque page est une ressource Resource View (`definePage` dans `src/lib/doc.tsx`) ; le menu est dans `src/pages/index.ts`. Une page par famille de tokens (`src/pages/tokens`) et par composant (`src/pages/components/index.tsx`) : ajouter un token ou un composant, c'est ajouter sa page.
 - Routage en mode `query` (`?view=…`) : GitHub Pages n'a pas de serveur pour les chemins profonds.
 - Communication abstraite : une agence digitale avec plusieurs produits, sans mettre un nom de personne en avant.
@@ -39,15 +41,15 @@ projects/
     banner.png
 ```
 
-Chaque projet a son propre dossier sous `projects/`, nommé exactement comme le dépôt GitHub correspondant (ex. `animalink`, `react-data-form`). Ce dossier contient `icon.png` et `banner.png`.
+Chaque projet a son propre dossier sous `projects/`, nommé exactement comme le dépôt GitHub correspondant (ex. `trader-ia`, `react-data-form`). Ce dossier contient `icon.png` et `banner.png`.
 
 ## Conventions
 
 - **Fond** : `#0f172a` (slate-900)
 - **Glyphe** : icône de ligne façon Lucide, traits fins, extrémités arrondies, sans remplissage
 - **Icône** : 1024 × 1024, carré à coins arrondis, marge généreuse
-- **Bannière** : 1536 × 672 (21:9), glyphe à gauche, nom du projet en blanc, sous-titre en anglais en gris ardoise, halo de la couleur du projet en bas à droite
-- **Une couleur par projet** — voir le tableau du README pour la liste complète, ne pas la dupliquer ici
+- **Bannière** : 1536 × 672 (21:9), glyphe à gauche, nom du projet en blanc, sous-titre en anglais en gris ardoise, halo sky en bas à droite
+- **Une seule couleur pour tous les produits** : sky `#38bdf8`. Exceptions (Hermez, Opoil) dans le README, ne pas les dupliquer ici
 
 ## Pièges connus
 
