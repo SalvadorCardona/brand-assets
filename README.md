@@ -10,8 +10,8 @@ Un seul système visuel, une même couleur pour tous les produits.
 
 - **Nom** : « Hermez » en anglais, « Hermez agency » quand il faut préciser
 - **Logo** : un h et son point dans un carré arrondi bordé d'orange (variante 4D « contour »), suivi de « hermez » en Outfit 700. Fichiers SVG (texte vectorisé), PNG, favicon et image de partage dans `site/public/hermez/`, publiés sur <https://salvadorcardona.github.io/brand-assets/hermez/> (ex. `hermez-logo.svg`, `hermez-symbol.svg`) ; règles d'usage sur la page « Logo Hermez » du site. Couleurs : orange `#e8611a` (`#f2803f` sur fond sombre), encre `#18181b`, fond sombre `#141414`
-- **Logos obsolètes** : le « C » de l'agence Cardona et le H à trois plumes d'aile (`projects/hermez/icon.png`, `banner.png`) ne sont plus le logo actuel ; ne plus les reprendre
-- **Couleur** : argent `#e2e8f0`, neutre, pour ne se confondre avec aucun produit
+- **Visuels** : `projects/hermez/icon.png` (1024 × 1024) et `banner.png` (1536 × 672) reprennent le logo du portfolio, orange sur fond clair `#fafaf9`, sous-titre en gris pierre
+- **Logos obsolètes** : le « C » de l'agence Cardona et le H à trois plumes d'aile sur fond bleu nuit (ancien `projects/hermez/icon.png`, supprimé) ne sont plus le logo actuel ; ne plus les reprendre
 - **Signature** : en pied de page de chaque produit, en texte et en anglais :
 
   ```
@@ -27,7 +27,7 @@ Un seul système visuel, une même couleur pour tous les produits.
 - **Glyphe** : icône de ligne façon Lucide, traits fins, extrémités arrondies, sans remplissage
 - **Logo existant** : un projet qui a déjà le sien le garde, avec sa couleur de marque — c'est le cas d'Opoil
 - **Icône** : 1024 × 1024, carré à coins arrondis, marge généreuse
-- **Bannière** : 1536 × 672 (21:9), glyphe à gauche, nom du projet en blanc, sous-titre **en anglais** en gris ardoise, halo sky en bas à droite (sauf Hermez et Opoil)
+- **Bannière** : 1536 × 672 (21:9), glyphe à gauche, nom du projet en blanc, sous-titre **en anglais** en gris ardoise, halo sky en bas à droite (sauf Hermez, qui suit la DA du portfolio, et Opoil)
 - **Génération** : `google/gemini-2.5-flash-image` via OpenRouter
 
 ## Projets
@@ -36,7 +36,7 @@ Tous les produits portent la même couleur : **sky `#38bdf8`**, pour le halo et 
 
 Exceptions :
 
-- `hermez` — argent `#e2e8f0`, l'agence elle-même, pour ne se confondre avec aucun produit
+- `hermez` — orange `#e8611a` sur fond clair, la DA du portfolio (logo 4D contour), pas le glyphe sky
 - `opoil` — bleu pétrole `#38869c`, logo maison repris de [SalvadorCardona/opoil](https://github.com/SalvadorCardona/opoil) : `pwa/public/logo/opoil-mark.svg`
 
 Les autres projets, en sky :
