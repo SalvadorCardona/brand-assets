@@ -6,7 +6,7 @@ const groups: { title: string; intro: string; tokens: [string, string][] }[] = [
     title: "Surfaces",
     intro: "Le fond de la page et les plans posés dessus.",
     tokens: [
-      ["background", "Fond de page — slate-900"],
+      ["background", "Fond de page — stone-50"],
       ["card", "Cartes, tableaux, panneaux"],
       ["popover", "Menus, fenêtres flottantes"],
       ["muted", "Zones en retrait"],
@@ -19,7 +19,7 @@ const groups: { title: string; intro: string; tokens: [string, string][] }[] = [
     intro: "Une valeur par rôle, jamais une couleur ad hoc.",
     tokens: [
       ["foreground", "Texte courant"],
-      ["muted-foreground", "Sous-titres, légendes, gris ardoise"],
+      ["muted-foreground", "Sous-titres, légendes, gris pierre"],
       ["card-foreground", "Texte sur une carte"],
       ["primary-foreground", "Texte sur la couleur primaire"],
     ],
