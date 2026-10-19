@@ -40,10 +40,12 @@ Les visuels des produits refaits (Ponos, Leadz, react-resource-view, react-data-
 projects/
   <nom-du-projet>/
     icon.png
+    icon.svg
+    favicon-32.png / favicon-180.png / favicon-512.png
     banner.png
 ```
 
-Chaque projet a son propre dossier sous `projects/`, nommé exactement comme le dépôt GitHub correspondant (ex. `trader-ia`, `react-data-form`). Ce dossier contient `icon.png` et `banner.png`.
+Chaque projet a son propre dossier sous `projects/`, nommé exactement comme le dépôt GitHub correspondant (ex. `trader-ia`, `react-data-form`). Ce dossier contient `icon.png` et `banner.png` ; les six produits refaits ont aussi `icon.svg` (aussi le favicon SVG) et `favicon-32|180|512.png`, produits par `pnpm visuals:build`.
 
 ## Conventions
 

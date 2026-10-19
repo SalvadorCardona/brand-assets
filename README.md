@@ -67,7 +67,7 @@ En tête du README d'un projet :
 ![nom-du-projet](https://raw.githubusercontent.com/SalvadorCardona/brand-assets/main/projects/nom-du-projet/banner.png)
 ```
 
-L'icône sert de `favicon`, d'icône d'application et d'icône de page Notion.
+L'icône sert de `favicon`, d'icône d'application et d'icône de page Notion. Les produits refaits ont aussi `icon.svg` (favicon SVG) et `favicon-32.png`, `favicon-180.png`, `favicon-512.png` (générés par `pnpm visuals:build`).
 
 ## Site du design system
 
