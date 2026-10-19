@@ -13,7 +13,7 @@ import {
   Timer,
 } from "lucide-react"
 import { definePage } from "@/lib/doc"
-import { HermezMark } from "@/logo"
+import { HermezMark } from "@/identity/hermez-mark"
 import { Badge } from "@/ui/badge"
 import { Button } from "@/ui/button"
 import { Input } from "@/ui/input"

@@ -1,6 +1,6 @@
 import { Hexagon } from "lucide-react"
 import { definePage, Example, Section, useCssVar } from "@/lib/doc"
-import { HermezMark } from "@/logo"
+import { HermezMark } from "@/identity/hermez-mark"
 
 /** Où les fichiers sont publiés : les autres projets les reprennent à cette adresse. */
 const publicBase = "https://salvadorcardona.github.io/brand-assets/hermez/"

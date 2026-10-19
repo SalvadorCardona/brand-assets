@@ -15,6 +15,7 @@ Rien à exécuter à la racine. Dans `site/` :
 - `pnpm dev` : serveur de développement (port 3000)
 - `pnpm typecheck`
 - `pnpm build` : sortie dans `site/dist` ; `SITE_BASE=/brand-assets/` pour le préfixe de GitHub Pages
+- `pnpm registry:build` : le registry shadcn dans `site/public/r` (lancé par `pnpm build`, non versionné)
 
 Il n'y a ni test ni lint.
 
@@ -26,6 +27,7 @@ Il n'y a ni test ni lint.
 - Les titres (`h1`–`h6`) prennent la police, la graisse et l'approche du thème par une règle hors couche dans `styles.css` : elle prime sur les utilitaires `font-semibold` ou `tracking-tight` posés dans les pages.
 - Chaque page est une ressource Resource View (`definePage` dans `src/lib/doc.tsx`) ; le menu est dans `src/pages/index.ts`. Une page par famille de tokens (`src/pages/tokens`) et par composant (`src/pages/components/index.tsx`) : ajouter un token ou un composant, c'est ajouter sa page.
 - Routage en mode `query` (`?view=…`) : GitHub Pages n'a pas de serveur pour les chemins profonds.
+- Registry shadcn : `registry.json` déclare les items, `scripts/build-registry.ts` les construit. Les tokens (`registry:theme`) et les règles de base (`registry:style`) sont relus dans `styles.css` et `fonts.ts`, jamais recopiés dans `registry.json`. Un composant ajouté à `src/ui` s'ajoute aussi à `registry.json`.
 - Communication abstraite : une agence digitale avec plusieurs produits, sans mettre un nom de personne en avant.
 
 ## Génération des visuels
