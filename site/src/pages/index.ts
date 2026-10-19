@@ -4,6 +4,7 @@ import { componentResources } from "./components"
 import logoHermez from "./identity/logo-hermez"
 import landingResource from "./examples/landing"
 import overviewResource from "./overview"
+import registryResource from "./registry"
 import { adminResource, listsResource, productsResource } from "./resource-view"
 import brandColors from "./tokens/brand-colors"
 import colors from "./tokens/colors"
@@ -21,6 +22,7 @@ const exampleResources = [landingResource]
 /** Toutes les pages du site, dans l'ordre du menu. */
 export const pages = [
   overviewResource,
+  registryResource,
   ...tokenResources,
   ...identityResources,
   ...componentResources,
@@ -33,6 +35,7 @@ export const resources = [...pages, productsResource]
 
 export const menu: ScopeMenuEntry[] = [
   overviewResource,
+  registryResource,
   { name: "Tokens", icon: Palette, items: tokenResources },
   { name: "Identité", icon: Fingerprint, items: identityResources },
   { name: "Composants", icon: Component, items: componentResources },

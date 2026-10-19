@@ -43,6 +43,7 @@ import { Toaster } from "@/ui/sonner"
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/ui/tabs"
 import { CodeBlock, definePage, Example, Section } from "@/lib/doc"
+import { installCommand } from "@/lib/registry"
 
 interface Demo {
   label: string
@@ -708,6 +709,9 @@ export const componentResources = pages.map((page) =>
             </Example>
           ))}
           {page.id === "sonner" && <Toaster />}
+        </Section>
+        <Section title="Installation" intro="Depuis le registry, dans un projet où le style hermez est installé.">
+          <CodeBlock>{installCommand(page.file)}</CodeBlock>
         </Section>
         <Section title="Utilisation" intro={<>Source : <code className="font-mono text-sm">src/ui/{page.file}.tsx</code></>}>
           <CodeBlock>{`import { … } from "@/ui/${page.file}"\n\n${page.usage}`}</CodeBlock>

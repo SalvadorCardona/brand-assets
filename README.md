@@ -76,3 +76,62 @@ Tokens, composants shadcn et implémentation [Resource View](https://github.com/
 ```bash
 cd site && pnpm install && pnpm dev
 ```
+
+## Registry shadcn
+
+Brand Assets est la source unique du design system de Hermez : les produits
+installent tokens, polices, logo et composants depuis ce registry au lieu de les
+redéfinir. Il est publié avec le site sur GitHub Pages :
+<https://salvadorcardona.github.io/brand-assets/r/registry.json>. La page
+« Registry » du site liste chaque item, sa commande d'installation et les tokens.
+
+### L'ajouter dans un projet
+
+Prérequis : un projet shadcn sur Tailwind CSS v4 (`npx shadcn@latest init`, de
+préférence avec la base `base` et le preset `luma`, ceux des composants).
+
+1. Installer le style, qui tire le thème, les polices et l'utilitaire `cn` :
+
+   ```bash
+   npx shadcn@latest add https://salvadorcardona.github.io/brand-assets/r/hermez.json
+   ```
+
+2. Installer les composants voulus :
+
+   ```bash
+   npx shadcn@latest add https://salvadorcardona.github.io/brand-assets/r/button.json
+   ```
+
+Pour installer par nom, déclarer le registry une fois dans `components.json` :
+
+```json
+{
+  "registries": {
+    "@hermez": "https://salvadorcardona.github.io/brand-assets/r/{name}.json"
+  }
+}
+```
+
+```bash
+npx shadcn@latest add @hermez/hermez @hermez/button @hermez/dialog @hermez/hermez-logo
+```
+
+### Items
+
+| Item | Type | Contenu |
+| --- | --- | --- |
+| `hermez` | `registry:style` | Le thème, Bricolage Grotesque et Outfit (Fontsource), les règles de base (corps, titres) |
+| `hermez-theme` | `registry:theme` | Les tokens : couleurs, palette de données, couleurs du logo, typographie, rayons, ombres, mouvement |
+| `hermez-logo` | `registry:component` | `HermezMark` (le symbole en React) et les SVG du logo dans `public/hermez/` |
+| `cn` | `registry:ui` | L'utilitaire de classes des composants |
+| `button`, `card`, `dialog`… | `registry:ui` | Les composants shadcn de [Resource View](https://github.com/SalvadorCardona/react-resource-view), un item chacun |
+
+### Le maintenir
+
+`site/registry.json` déclare les items ; `pnpm registry:build` (lancé par
+`pnpm build`) écrit un fichier par item dans `site/public/r/`. Le script relit les
+tokens et les règles de base dans `site/src/styles.css` et les polices dans
+`site/src/fonts.ts` : un token se change là, jamais dans le registry. Un nouveau
+composant de `site/src/ui` s'ajoute à `registry.json` avec ses dépendances.
+`REGISTRY_URL=http://localhost:5199/r/ pnpm registry:build` construit un registry
+qui pointe vers un serveur local, pour l'essayer avant de le publier.

@@ -1,0 +1,423 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "hermez",
+  "homepage": "https://salvadorcardona.github.io/brand-assets/",
+  "items": [
+    {
+      "name": "hermez",
+      "type": "registry:style",
+      "title": "Hermez",
+      "description": "Le style Hermez : thème, polices (Bricolage Grotesque, Outfit) et règles de base (corps, titres). À installer en premier.",
+      "registryDependencies": [
+        "hermez-theme",
+        "cn"
+      ]
+    },
+    {
+      "name": "hermez-theme",
+      "type": "registry:theme",
+      "title": "Thème Hermez",
+      "description": "Les tokens : couleurs sémantiques, palette de données, couleurs du logo, typographie, rayons, ombres et mouvement."
+    },
+    {
+      "name": "hermez-logo",
+      "type": "registry:component",
+      "title": "Logo Hermez",
+      "description": "Le symbole Hermez en composant React (HermezMark) et les fichiers SVG du logo, copiés dans public/hermez/.",
+      "registryDependencies": [
+        "hermez-theme"
+      ],
+      "files": [
+        {
+          "path": "src/identity/hermez-mark.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "public/hermez/hermez-logo.svg",
+          "type": "registry:file",
+          "target": "~/public/hermez/hermez-logo.svg"
+        },
+        {
+          "path": "public/hermez/hermez-logo-dark.svg",
+          "type": "registry:file",
+          "target": "~/public/hermez/hermez-logo-dark.svg"
+        },
+        {
+          "path": "public/hermez/hermez-symbol.svg",
+          "type": "registry:file",
+          "target": "~/public/hermez/hermez-symbol.svg"
+        },
+        {
+          "path": "public/hermez/hermez-symbol-dark.svg",
+          "type": "registry:file",
+          "target": "~/public/hermez/hermez-symbol-dark.svg"
+        }
+      ]
+    },
+    {
+      "name": "cn",
+      "type": "registry:ui",
+      "title": "cn",
+      "description": "L'utilitaire de classes des composants (clsx et tailwind-merge).",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "src/ui/cn.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "title": "Alert Dialog",
+      "description": "Le composant Alert Dialog aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "Le composant Badge aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "title": "Button Group",
+      "description": "Le composant Button Group aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Le composant Button aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "Le composant Card aux couleurs Hermez.",
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "title": "Chart",
+      "description": "Le composant Chart aux couleurs Hermez.",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Le composant Checkbox aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "Le composant Dialog aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react",
+        "react-mini-i18n"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "title": "Field",
+      "description": "Le composant Field aux couleurs Hermez.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "label",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "Le composant Input aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "title": "Item",
+      "description": "Le composant Item aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "title": "Label",
+      "description": "Le composant Label aux couleurs Hermez.",
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Le composant Popover aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "Scroll Area",
+      "description": "Le composant Scroll Area aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "Le composant Select aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "description": "Le composant Separator aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "title": "Sonner",
+      "description": "Le composant Sonner aux couleurs Hermez.",
+      "dependencies": [
+        "lucide-react",
+        "sonner"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "title": "Table",
+      "description": "Le composant Table aux couleurs Hermez.",
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Le composant Tabs aux couleurs Hermez.",
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
