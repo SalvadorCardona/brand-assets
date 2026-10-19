@@ -4,7 +4,7 @@
 
 Identité de Hermez, l'agence digitale qui porte les produits, et icônes et bannières
 de ses projets open source (dépôts [@SalvadorCardona](https://github.com/SalvadorCardona)).
-Un seul système visuel, une même couleur pour tous les produits.
+Un seul système visuel : celui du portfolio Hermez.
 
 ## Hermez
 
@@ -23,41 +23,41 @@ Un seul système visuel, une même couleur pour tous les produits.
 
 ## Charte
 
-- **Fond** : `#0f172a` (slate-900, repris du favicon du portfolio)
-- **Glyphe** : icône de ligne façon Lucide, traits fins, extrémités arrondies, sans remplissage
-- **Logo existant** : un projet qui a déjà le sien le garde, avec sa couleur de marque — c'est le cas d'Opoil
-- **Icône** : 1024 × 1024, carré à coins arrondis, marge généreuse
-- **Bannière** : 1536 × 672 (21:9), glyphe à gauche, nom du projet en blanc, sous-titre **en anglais** en gris ardoise, halo sky en bas à droite (sauf Hermez, qui suit la DA du portfolio, et Opoil)
-- **Génération** : `google/gemini-2.5-flash-image` via OpenRouter
+La DA est celle du portfolio de l'agence (<https://hermez.dev>), reprise de `site/src/styles.css`, seule source des tokens :
+
+- **Logo Hermez** : le h et son point en carré arrondi bordé d'orange (variante 4D « contour »), « hermez » en Outfit 700
+- **Fond** : clair, « stone » — `#fafaf9` (page), `#ffffff` (cartes), bordures `#e7e5e4`. Le sombre n'existe pas
+- **Orange Hermez** : `#e8611a` (logo, glyphes et halo), `#e46212` (anneau de focus), `#bf4a02` sous un texte blanc ; encre `#18181b` / `#1c1917`, texte secondaire `#57534e`
+- **Polices** : Bricolage Grotesque 800 pour les titres et les noms (Fontsource), Outfit 700 pour le logotype Hermez seul. Le texte courant prend la police du système sur le site ; les visuels, eux, composent le sous-titre en Bricolage 500 pour que le rendu ne dépende pas de la machine
+- **Arrondis** : base `0.75rem` ; carré d'icône à 22,5 % de rayon
+- **Fonds** : plats, avec un halo radial de la couleur du produit (18 %) en bas à droite, jamais de dégradé franc ni de texture
+- **Identité produit** : chaque produit garde sa mascotte ou son logo et ne les change pas : le robot Ponos (version grecque : mèche-flamme, tunique ivoire, écharpe terre cuite, fibule dorée), le ninja Leadzy, le logo maison d'Opoil. Les autres ont un glyphe en gros trait arrondi, dans l'esprit du symbole Hermez
+- **Icône** : 1024 × 1024, carré à coins arrondis, fond blanc, bordure orange de 44 px, mascotte ou glyphe centré
+- **Bannière** : 1536 × 672 — mascotte à gauche, nom du produit en Bricolage 800 (réduit jusqu'à tenir entier dans sa colonne, jamais coupé), sous-titre **en anglais**, signature « A Hermez product », halo en bas à droite
+- **Card** : `card.png`, 1280 × 600 (32:15, le cadre des cards du portfolio), même mise en page avec des marges plus larges pour qu'un recadrage ne morde pas le texte
+- **Génération** : `cd site && pnpm visuals:build` (Chrome sans tête), qui lit `site/scripts/build-visuals.ts`. Le nom est du vrai texte, pas une image générée : plus de nom faux ou tronqué
 
 ## Projets
 
-Tous les produits portent la même couleur : **sky `#38bdf8`**, pour le halo et le glyphe.
+Refaits dans cette DA (aperçu : [`previews/products.png`](previews/products.png)) :
 
-Exceptions :
+| Dossier | Produit | Site | Mascotte / logo | Couleur |
+| --- | --- | --- | --- | --- |
+| `ponos` | Ponos — « Write the ticket. It comes back done. » (« Écrivez le ticket, il revient fait. ») | <https://the-ponos.app> | robot Ponos, version grecque | orange |
+| `leadz-ninja` | Leadz | <https://leadz.ninja> | ninja Leadzy | orange |
+| `react-resource-view` | react-resource-view | <https://hermez.dev/react-resource-view> | glyphe | orange |
+| `react-data-form` | react-data-form | <https://hermez.dev/react-data-form> | glyphe | orange |
+| `whisper-desk` | Whisper Desk | <https://hermez.dev/whisper-desk> | glyphe micro | orange |
+| `opoil` | Opoil | <https://opoil.app> | logo maison ([SalvadorCardona/opoil](https://github.com/SalvadorCardona/opoil) : `pwa/public/logo/opoil-mark.svg`) | bleu pétrole `#38869c` |
 
-- `hermez` — orange `#e8611a` sur fond clair, la DA du portfolio (logo 4D contour), pas le glyphe sky
-- `opoil` — bleu pétrole `#38869c`, logo maison repris de [SalvadorCardona/opoil](https://github.com/SalvadorCardona/opoil) : `pwa/public/logo/opoil-mark.svg`
+Déjà dans la DA du portfolio, par un autre ticket : `hermez` et `salvadorcardona.github.io` (logo Hermez, orange sur fond clair).
 
-Les autres projets, en sky :
+Les mascottes de Ponos, Leadzy et Opoil sont recopiées de leurs dépôts dans `site/scripts/visuals/`, jamais redessinées. `ticket-runner` est le nom d'avant Ponos : le dossier a disparu.
 
-- `SalvadorCardona`
-- `salvadorcardona.github.io` — site de Hermez : icône et bannière reprennent le logo Hermez du portfolio (orange sur fond clair), pas le glyphe sky
-- `trader-ia`
-- `whisper-desk`
-- `ticket-runner`
-- `gnome-claude-usage`
-- `adam` (anciennement `mobile-factory`)
-- `des-3d`
-- `react-resource-view`
-- `react-data-form`
-- `jsonld-api-client`
-- `jsonld-repository`
-- `jsonld-item`
-- `resource-registry`
-- `react-jwt-session`
-- `react-mini-i18n`
-- `ssr-safe-storage`
+Pas encore repris dans la DA Hermez (ancien système : fond slate-900, glyphe Lucide sky `#38bdf8`), à refaire par un ticket à part :
+
+- `trader-ia`, `gnome-claude-usage`, `adam` (anciennement `mobile-factory`), `des-3d`
+- `jsonld-api-client`, `jsonld-repository`, `jsonld-item`, `resource-registry`, `react-jwt-session`, `react-mini-i18n`, `ssr-safe-storage`
 
 ## Utilisation
 

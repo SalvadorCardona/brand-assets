@@ -7,16 +7,16 @@ import { definePage, Section } from "@/lib/doc"
  */
 export const productColor = { label: "Sky", hex: "#38bdf8" }
 
-/** Les produits qui portent la couleur commune. */
+/**
+ * Les projets pas encore refaits dans la DA Hermez : ils gardent le sky. Les
+ * produits refaits (Ponos, Leadz, react-resource-view, react-data-form, Whisper
+ * Desk, Opoil) suivent le README.
+ */
 export const products = [
   "trader-ia",
-  "whisper-desk",
-  "ticket-runner",
   "gnome-claude-usage",
   "adam",
   "des-3d",
-  "react-resource-view",
-  "react-data-form",
   "jsonld-api-client",
   "jsonld-repository",
   "jsonld-item",
