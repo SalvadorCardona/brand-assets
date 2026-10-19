@@ -6,6 +6,7 @@
     "dev": "vite --port 3000",
     "build": "pnpm registry:build && vite build",
     "registry:build": "node scripts/build-registry.ts",
+    "visuals:build": "node scripts/build-visuals.ts",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },

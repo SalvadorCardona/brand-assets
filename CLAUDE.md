@@ -32,7 +32,7 @@ Il n'y a ni test ni lint.
 
 ## Génération des visuels
 
-Les images sont générées manuellement avec `google/gemini-2.5-flash-image` via OpenRouter. Il n'y a pas de script automatisé dans le dépôt pour ça : le processus se fait à la main, projet par projet.
+Les visuels des produits refaits (Ponos, Leadz, react-resource-view, react-data-form, Whisper Desk, Opoil) sont dessinés en HTML et photographiés par Chrome sans tête : `cd site && pnpm visuals:build` (`site/scripts/build-visuals.ts`, mascottes et glyphes dans `site/scripts/visuals/`). Ajouter un produit, c'est ajouter une ligne à `products` et son SVG. Les autres projets gardent leurs anciennes images, générées à la main avec `google/gemini-2.5-flash-image` via OpenRouter, en attendant leur ticket.
 
 ## Arborescence
 
@@ -47,14 +47,14 @@ Chaque projet a son propre dossier sous `projects/`, nommé exactement comme le 
 
 ## Conventions
 
-- **Fond** : `#0f172a` (slate-900)
-- **Glyphe** : icône de ligne façon Lucide, traits fins, extrémités arrondies, sans remplissage
-- **Icône** : 1024 × 1024, carré à coins arrondis, marge généreuse
-- **Bannière** : 1536 × 672 (21:9), glyphe à gauche, nom du projet en blanc, sous-titre en anglais en gris ardoise, halo sky en bas à droite
-- **Une seule couleur pour tous les produits** : sky `#38bdf8`. Exceptions (Hermez, Opoil) dans le README, ne pas les dupliquer ici
+- **DA** : celle du portfolio Hermez, décrite dans le README (fond clair `#fafaf9`, orange `#e8611a`, Bricolage Grotesque). L'ancien système (slate-900, glyphe Lucide, sky `#38bdf8`) ne reste que sur les projets pas encore refaits
+- **Icône** : 1024 × 1024, carré à coins arrondis, bordure orange ; **bannière** : 1536 × 672 ; **card** : `card.png`, 1280 × 600
+- **Une mascotte ou un logo validé ne se redessine pas** : on le recopie de son dépôt. Orange pour tous les produits, sauf Opoil (son bleu pétrole) et Hermez, exceptions décrites dans le README, ne pas les dupliquer ici
 
 ## Pièges connus
 
 - Les produits sont signés Hermez (« A Hermez product »), pas « Salvador Cardona » ni « l'agence Cardona » : ce nom ne s'affiche que dans les mentions légales. Les dossiers `SalvadorCardona` et `salvadorcardona.github.io` gardent leur nom parce qu'ils suivent celui du dépôt GitHub.
 
-- Un projet qui a déjà son propre logo (ex. Opoil) **ne doit pas être régénéré** : on garde son logo maison et sa couleur de marque, on ne le remplace pas par le glyphe générique.
+- Un projet qui a déjà son propre logo (ex. Opoil) **ne doit pas être remplacé** : on garde son logo maison et sa couleur de marque.
+
+- « ticket-runner » est l'ancien nom de Ponos : ne plus l'écrire (le dossier est `projects/ponos`).
