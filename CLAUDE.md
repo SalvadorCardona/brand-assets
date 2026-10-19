@@ -1,6 +1,6 @@
 # brand-assets
 
-Identité de Hermez (l'agence digitale qui porte les produits) et icônes et bannières des projets open source de [@SalvadorCardona](https://github.com/SalvadorCardona), rassemblées dans un système visuel unique.
+Identité de Hermez (l'agence digitale qui porte les produits) et icônes et bannières de ses projets open source, rassemblées dans un système visuel unique.
 
 ## Stack
 
@@ -23,7 +23,7 @@ Il n'y a ni test ni lint.
 
 - Les tokens vivent dans `site/src/styles.css`, seule source. Les pages de tokens relisent les variables dans le navigateur (`useCssVar`), elles ne les recopient pas.
 - Les composants shadcn sont dans `site/src/ui` (copie de ceux de Resource View).
-- Un seul thème, celui du portfolio de l'agence (`salvadorcardona.github.io`) : gris « stone », orange `#e46212` (en `#bf4a02` sous un texte blanc), Bricolage Grotesque pour les titres (Fontsource, `src/fonts.ts`), police du système pour le texte. Clair seulement : `dark:` ne dépend que d'une classe `.dark` jamais posée.
+- Un seul thème, celui du portfolio de l'agence (`hermez.dev`) : gris « stone », orange `#e46212` (en `#bf4a02` sous un texte blanc), Bricolage Grotesque pour les titres (Fontsource, `src/fonts.ts`), police du système pour le texte. Clair seulement : `dark:` ne dépend que d'une classe `.dark` jamais posée.
 - Les titres (`h1`–`h6`) prennent la police, la graisse et l'approche du thème par une règle hors couche dans `styles.css` : elle prime sur les utilitaires `font-semibold` ou `tracking-tight` posés dans les pages.
 - Chaque page est une ressource Resource View (`definePage` dans `src/lib/doc.tsx`) ; le menu est dans `src/pages/index.ts`. Une page par famille de tokens (`src/pages/tokens`) et par composant (`src/pages/components/index.tsx`) : ajouter un token ou un composant, c'est ajouter sa page.
 - Routage en mode `query` (`?view=…`) : GitHub Pages n'a pas de serveur pour les chemins profonds.
@@ -55,7 +55,7 @@ Chaque projet a son propre dossier sous `projects/`, nommé exactement comme le 
 
 ## Pièges connus
 
-- Les produits sont signés Hermez (« A Hermez product »), pas « Salvador Cardona » ni « l'agence Cardona » : ce nom ne s'affiche que dans les mentions légales. Les dossiers `SalvadorCardona` et `salvadorcardona.github.io` gardent leur nom parce qu'ils suivent celui du dépôt GitHub.
+- Les produits sont signés Hermez (« A Hermez product »), pas « Salvador Cardona » ni « l'agence Cardona » : ce nom ne s'affiche que dans les mentions légales. Le compte `SalvadorCardona` des URL garde son nom tant que les dépôts n'ont pas rejoint l'organisation `hermez-agency`.
 
 - Un projet qui a déjà son propre logo (ex. Opoil) **ne doit pas être remplacé** : on garde son logo maison et sa couleur de marque.
 

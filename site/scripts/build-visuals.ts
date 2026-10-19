@@ -3,7 +3,9 @@
  * (1024 × 1024) et son `icon.svg` (aussi le favicon SVG), les favicons
  * `favicon-32.png`, `favicon-180.png` et `favicon-512.png`, `banner.png`
  * (1536 × 672) et `card.png` (1280 × 600, le 32:15 des cards du portfolio),
- * plus la planche `../previews/products.png`.
+ * plus la planche `../previews/products.png`. Pour Hermez, les visuels de la
+ * page LinkedIn dans `../projects/hermez/` : `linkedin-logo.png` (300 × 300) et
+ * `linkedin-banner.png` (1128 × 191).
  *
  * Chaque visuel est une page HTML (polices Fontsource du site, mascotte ou
  * glyphe de `scripts/visuals/`) que Chrome sans tête photographie : le nom du
@@ -57,6 +59,7 @@ const font = (file: string) =>
   pathToFileURL(path(new URL(`node_modules/${file}`, root))).href
 const bricolage = font("@fontsource-variable/bricolage-grotesque/files/bricolage-grotesque-latin-wght-normal.woff2")
 const symbol = pathToFileURL(path(new URL("public/hermez/hermez-symbol.svg", root))).href
+const logo = pathToFileURL(path(new URL("public/hermez/hermez-logo.svg", root))).href
 const markUrl = (file: string) => pathToFileURL(path(new URL(`scripts/visuals/${file}`, root))).href
 
 const css = `
@@ -122,6 +125,24 @@ function banner(p: Product, width: number, height: number, pad: number, markHeig
   </script>`
 }
 
+/** Logo de la page LinkedIn : le symbole Hermez sur le fond clair. */
+function linkedinLogo(): string {
+  return `<style>${css}
+    .frame { width: 300px; height: 300px; display: grid; place-items: center; background: #fafaf9; }
+    .frame img { width: 220px; height: 220px; }
+  </style><div class="frame"><img src="${symbol}" alt=""></div>`
+}
+
+/** Bannière de la page LinkedIn : le logo à droite, la photo de la page recouvre le coin bas gauche. */
+function linkedinBanner(): string {
+  return `<style>${css}
+    .frame { width: 1128px; height: 191px; padding: 0 72px; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 10px;
+      background: radial-gradient(60% 90% at 100% 100%, ${hex(orange, 0.18)}, transparent 70%), #fafaf9; }
+    .frame img { display: block; height: 64px; }
+    .tagline { font-size: 22px; font-weight: 500; color: #57534e; }
+  </style><div class="frame"><img src="${logo}" alt=""><p class="tagline">Digital agency</p></div>`
+}
+
 function sheet(): string {
   const cells = products.map((p) => {
     const dir = pathToFileURL(path(new URL(`projects/${p.slug}/`, repo))).href
@@ -164,6 +185,10 @@ try {
     shoot(banner(p, 1280, 600, 100, 340), join(dir, "card.png"), 1280, 600, work)
     console.log(`${p.slug}: icon, favicons, banner, card`)
   }
+  const hermez = path(new URL("projects/hermez/", repo))
+  shoot(linkedinLogo(), join(hermez, "linkedin-logo.png"), 300, 300, work)
+  shoot(linkedinBanner(), join(hermez, "linkedin-banner.png"), 1128, 191, work)
+  console.log("hermez: linkedin-logo, linkedin-banner")
   mkdirSync(path(new URL("previews/", repo)), { recursive: true })
   shoot(sheet(), path(new URL("previews/products.png", repo)), 2400, 3340, work)
   console.log("previews/products.png")
