@@ -1,7 +1,9 @@
 /*
  * Dessine les visuels des produits dans `../projects/<produit>/` : `icon.png`
- * (1024 × 1024), `banner.png` (1536 × 672) et `card.png` (1280 × 600, le 32:15
- * des cards du portfolio), plus la planche `../previews/products.png`.
+ * (1024 × 1024) et son `icon.svg` (aussi le favicon SVG), les favicons
+ * `favicon-32.png`, `favicon-180.png` et `favicon-512.png`, `banner.png`
+ * (1536 × 672) et `card.png` (1280 × 600, le 32:15 des cards du portfolio),
+ * plus la planche `../previews/products.png`.
  *
  * Chaque visuel est une page HTML (polices Fontsource du site, mascotte ou
  * glyphe de `scripts/visuals/`) que Chrome sans tête photographie : le nom du
@@ -16,7 +18,7 @@
  * `CHROME` remplace le binaire (`google-chrome` par défaut).
  */
 import { execFileSync } from "node:child_process"
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from "node:fs"
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs"
 import { tmpdir } from "node:os"
 import { join } from "node:path"
 import { fileURLToPath, pathToFileURL } from "node:url"
@@ -67,13 +69,25 @@ const css = `
 const hex = (color: string, alpha: number) =>
   `${color}${Math.round(alpha * 255).toString(16).padStart(2, "0")}`
 
-function icon(p: Product): string {
-  const box = p.mark.ratio < 1 ? { h: 760, w: 760 * p.mark.ratio } : { w: p.mark.file === "opoil.svg" ? 560 : p.slug === "ponos" ? 840 : 520, h: 0 }
-  const size = box.h ? `height: ${box.h}px; width: ${box.w}px` : `width: ${box.w}px`
-  return `<style>${css}
-    .tile { width: 1024px; height: 1024px; border-radius: 230px; background: #fff; border: 44px solid ${p.color}; display: grid; place-items: center; }
-    img { display: block; ${size} }
-  </style><div class="tile"><img src="${markUrl(p.mark.file)}" alt=""></div>`
+/** Taille de la mascotte ou du glyphe dans la tuile 1024 × 1024. */
+function iconBox(p: Product): { w: number; h: number } {
+  if (p.mark.ratio < 1) return { h: 760, w: 760 * p.mark.ratio }
+  const w = p.mark.file === "opoil.svg" ? 560 : p.slug === "ponos" ? 840 : 520
+  return { w, h: w / p.mark.ratio }
+}
+
+/** Même tuile que `icon.png`, en vectoriel : la mascotte est incrustée telle quelle. */
+function iconSvg(p: Product): string {
+  const mark = readFileSync(path(new URL(`scripts/visuals/${p.mark.file}`, root)), "utf8").trim()
+  const { w, h } = iconBox(p)
+  const place = `x="${(1024 - w) / 2}" y="${(1024 - h) / 2}" width="${w}" height="${h}"`
+  const nested = mark.replace(/^<svg\b[^>]*>/, (root) => `<svg ${place}${root.slice(4).replace(/ (width|height)="[^"]*"/g, "")}`)
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><rect x="22" y="22" width="980" height="980" rx="208" fill="#fff" stroke="${p.color}" stroke-width="44"/>${nested}</svg>\n`
+}
+
+/** Un favicon : le SVG de l'icône à la taille du PNG. */
+function favicon(svgUrl: string, size: number): string {
+  return `<style>* { margin: 0 } html, body { background: transparent } img { display: block; width: ${size}px; height: ${size}px }</style><img src="${svgUrl}" alt="">`
 }
 
 /** Bannière et card : même mise en page, deux cadres. */
@@ -140,10 +154,15 @@ try {
   for (const p of products) {
     const dir = path(new URL(`projects/${p.slug}/`, repo))
     mkdirSync(dir, { recursive: true })
-    shoot(icon(p), join(dir, "icon.png"), 1024, 1024, work)
+    const svg = join(dir, "icon.svg")
+    writeFileSync(svg, iconSvg(p))
+    shoot(favicon(pathToFileURL(svg).href, 1024), join(dir, "icon.png"), 1024, 1024, work)
+    for (const size of [32, 180, 512]) {
+      shoot(favicon(pathToFileURL(svg).href, size), join(dir, `favicon-${size}.png`), size, size, work)
+    }
     shoot(banner(p, 1536, 672, 112, 400), join(dir, "banner.png"), 1536, 672, work)
     shoot(banner(p, 1280, 600, 100, 340), join(dir, "card.png"), 1280, 600, work)
-    console.log(`${p.slug}: icon, banner, card`)
+    console.log(`${p.slug}: icon, favicons, banner, card`)
   }
   mkdirSync(path(new URL("previews/", repo)), { recursive: true })
   shoot(sheet(), path(new URL("previews/products.png", repo)), 2400, 3340, work)
