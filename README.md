@@ -42,7 +42,7 @@ Exceptions :
 Les autres projets, en sky :
 
 - `SalvadorCardona`
-- `salvadorcardona.github.io` — site de Hermez : la bannière porte le logo Hermez
+- `salvadorcardona.github.io` — site de Hermez : icône et bannière reprennent le logo Hermez du portfolio (orange sur fond clair), pas le glyphe sky
 - `trader-ia`
 - `whisper-desk`
 - `ticket-runner`
