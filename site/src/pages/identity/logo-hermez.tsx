@@ -3,7 +3,7 @@ import { definePage, Example, Section, useCssVar } from "@/lib/doc"
 import { HermezMark } from "@/identity/hermez-mark"
 
 /** Où les fichiers sont publiés : les autres projets les reprennent à cette adresse. */
-const publicBase = "https://salvadorcardona.github.io/brand-assets/hermez/"
+const publicBase = "https://hermez.dev/brand-assets/hermez/"
 
 /** Un fichier du logo, tel que servi par le site (le préfixe suit `SITE_BASE`). */
 const asset = (name: string) => `${import.meta.env.BASE_URL}hermez/${name}`

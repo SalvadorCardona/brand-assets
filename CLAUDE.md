@@ -55,7 +55,7 @@ Chaque projet a son propre dossier sous `projects/`, nommé exactement comme le 
 
 ## Pièges connus
 
-- Les produits sont signés Hermez (« A Hermez product »), pas « Salvador Cardona » ni « l'agence Cardona » : ce nom ne s'affiche que dans les mentions légales. Le compte `SalvadorCardona` des URL garde son nom tant que les dépôts n'ont pas rejoint l'organisation `hermez-agency`.
+- Les produits sont signés Hermez (« A Hermez product »), pas « Salvador Cardona » ni « l'agence Cardona » : ce nom ne s'affiche que dans les mentions légales. Le dépôt est dans l'organisation `hermez-agency` : les URL des bannières et du site pointent vers `hermez-agency/brand-assets` et `hermez.dev/brand-assets/`.
 
 - Un projet qui a déjà son propre logo (ex. Opoil) **ne doit pas être remplacé** : on garde son logo maison et sa couleur de marque.
 
