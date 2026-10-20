@@ -43,7 +43,7 @@ const scope: ScopeInterface = {
       {
         name: "Brand Assets",
         icon: Github,
-        href: "https://github.com/SalvadorCardona/brand-assets",
+        href: "https://github.com/hermez-agency/brand-assets",
       },
     ],
   }),

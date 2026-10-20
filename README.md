@@ -1,4 +1,4 @@
-![Hermez](https://raw.githubusercontent.com/SalvadorCardona/brand-assets/main/projects/hermez/banner.png)
+![Hermez](https://raw.githubusercontent.com/hermez-agency/brand-assets/main/projects/hermez/banner.png)
 
 # brand-assets
 
@@ -9,7 +9,7 @@ Un seul système visuel : celui du portfolio Hermez.
 ## Hermez
 
 - **Nom** : « Hermez » en anglais, « Hermez agency » quand il faut préciser
-- **Logo** : un h et son point dans un carré arrondi bordé d'orange (variante 4D « contour »), suivi de « hermez » en Outfit 700. Fichiers SVG (texte vectorisé), PNG, favicon et image de partage dans `site/public/hermez/`, publiés sur <https://salvadorcardona.github.io/brand-assets/hermez/> (ex. `hermez-logo.svg`, `hermez-symbol.svg`) ; règles d'usage sur la page « Logo Hermez » du site. Couleurs : orange `#e8611a` (`#f2803f` sur fond sombre), encre `#18181b`, fond sombre `#141414`
+- **Logo** : un h et son point dans un carré arrondi bordé d'orange (variante 4D « contour »), suivi de « hermez » en Outfit 700. Fichiers SVG (texte vectorisé), PNG, favicon et image de partage dans `site/public/hermez/`, publiés sur <https://hermez.dev/brand-assets/hermez/> (ex. `hermez-logo.svg`, `hermez-symbol.svg`) ; règles d'usage sur la page « Logo Hermez » du site. Couleurs : orange `#e8611a` (`#f2803f` sur fond sombre), encre `#18181b`, fond sombre `#141414`
 - **Visuels** : `projects/hermez/icon.png` (1024 × 1024) et `banner.png` (1536 × 672) reprennent le logo du portfolio, orange sur fond clair `#fafaf9`, sous-titre en gris pierre
 - **LinkedIn** : `projects/hermez/linkedin-logo.png` (300 × 300, le symbole) et `linkedin-banner.png` (1128 × 191, le logo à droite, hors de la photo de la page), générés par `pnpm visuals:build`
 - **Logos obsolètes** : le « C » de l'agence Cardona et le H à trois plumes d'aile sur fond bleu nuit (ancien `projects/hermez/icon.png`, supprimé) ne sont plus le logo actuel ; ne plus les reprendre
@@ -65,14 +65,14 @@ Pas encore repris dans la DA Hermez (ancien système : fond slate-900, glyphe Lu
 En tête du README d'un projet :
 
 ```markdown
-![nom-du-projet](https://raw.githubusercontent.com/SalvadorCardona/brand-assets/main/projects/nom-du-projet/banner.png)
+![nom-du-projet](https://raw.githubusercontent.com/hermez-agency/brand-assets/main/projects/nom-du-projet/banner.png)
 ```
 
 L'icône sert de `favicon`, d'icône d'application et d'icône de page Notion. Les produits refaits ont aussi `icon.svg` (favicon SVG) et `favicon-32.png`, `favicon-180.png`, `favicon-512.png` (générés par `pnpm visuals:build`).
 
 ## Site du design system
 
-Tokens, composants shadcn et implémentation [Resource View](https://github.com/SalvadorCardona/react-resource-view), une page chacun, plus une vue d'ensemble : <https://salvadorcardona.github.io/brand-assets/>.
+Tokens, composants shadcn et implémentation [Resource View](https://github.com/hermez-agency/react-resource-view), une page chacun, plus une vue d'ensemble : <https://hermez.dev/brand-assets/>.
 
 ```bash
 cd site && pnpm install && pnpm dev
@@ -83,7 +83,7 @@ cd site && pnpm install && pnpm dev
 Brand Assets est la source unique du design system de Hermez : les produits
 installent tokens, polices, logo et composants depuis ce registry au lieu de les
 redéfinir. Il est publié avec le site sur GitHub Pages :
-<https://salvadorcardona.github.io/brand-assets/r/registry.json>. La page
+<https://hermez.dev/brand-assets/r/registry.json>. La page
 « Registry » du site liste chaque item, sa commande d'installation et les tokens.
 
 ### L'ajouter dans un projet
@@ -94,13 +94,13 @@ préférence avec la base `base` et le preset `luma`, ceux des composants).
 1. Installer le style, qui tire le thème, les polices et l'utilitaire `cn` :
 
    ```bash
-   npx shadcn@latest add https://salvadorcardona.github.io/brand-assets/r/hermez.json
+   npx shadcn@latest add https://hermez.dev/brand-assets/r/hermez.json
    ```
 
 2. Installer les composants voulus :
 
    ```bash
-   npx shadcn@latest add https://salvadorcardona.github.io/brand-assets/r/button.json
+   npx shadcn@latest add https://hermez.dev/brand-assets/r/button.json
    ```
 
 Pour installer par nom, déclarer le registry une fois dans `components.json` :
@@ -108,7 +108,7 @@ Pour installer par nom, déclarer le registry une fois dans `components.json` :
 ```json
 {
   "registries": {
-    "@hermez": "https://salvadorcardona.github.io/brand-assets/r/{name}.json"
+    "@hermez": "https://hermez.dev/brand-assets/r/{name}.json"
   }
 }
 ```
@@ -125,7 +125,7 @@ npx shadcn@latest add @hermez/hermez @hermez/button @hermez/dialog @hermez/herme
 | `hermez-theme` | `registry:theme` | Les tokens : couleurs, palette de données, couleurs du logo, typographie, rayons, ombres, mouvement |
 | `hermez-logo` | `registry:component` | `HermezMark` (le symbole en React) et les SVG du logo dans `public/hermez/` |
 | `cn` | `registry:ui` | L'utilitaire de classes des composants |
-| `button`, `card`, `dialog`… | `registry:ui` | Les composants shadcn de [Resource View](https://github.com/SalvadorCardona/react-resource-view), un item chacun |
+| `button`, `card`, `dialog`… | `registry:ui` | Les composants shadcn de [Resource View](https://github.com/hermez-agency/react-resource-view), un item chacun |
 
 ### Le maintenir
 
