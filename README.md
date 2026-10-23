@@ -125,6 +125,7 @@ npx shadcn@latest add @hermez/hermez @hermez/button @hermez/dialog @hermez/herme
 | `hermez-theme` | `registry:theme` | Les tokens : couleurs, palette de données, couleurs du logo, typographie, rayons, ombres, mouvement |
 | `hermez-logo` | `registry:component` | `HermezMark` (le symbole en React) et les SVG du logo dans `public/hermez/` |
 | `cn` | `registry:ui` | L'utilitaire de classes des composants |
+| `chat`, `chat-message`, `chat-parts`… | `registry:ui` | Le kit de chat IA (messages et parts au format TanStack AI, saisie, sélecteur de modèle, historique, progression), thèmes clair et sombre ; `chat` les installe tous |
 | `button`, `card`, `dialog`… | `registry:ui` | Les composants shadcn de [Resource View](https://github.com/hermez-agency/react-resource-view), un item chacun |
 
 ### Le maintenir

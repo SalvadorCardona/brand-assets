@@ -418,6 +418,216 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "chat-types",
+      "type": "registry:ui",
+      "title": "Chat IA : types",
+      "description": "Les types du kit de chat (messages et parts au format TanStack AI) et toolStatus().",
+      "registryDependencies": [
+        "hermez"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chat-types.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-markdown",
+      "type": "registry:ui",
+      "title": "Chat IA : Markdown",
+      "description": "Le rendu Markdown des messages et les blocs de code avec bouton Copier.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "button",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chat-markdown.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-parts",
+      "type": "registry:ui",
+      "title": "Chat IA : parts",
+      "description": "Un composant par type de part TanStack AI : texte, réflexion, appel d'outil, validation, résultat.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "badge",
+        "button",
+        "cn",
+        "chat-markdown",
+        "chat-types"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chat-parts.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-message",
+      "type": "registry:ui",
+      "title": "Chat IA : message",
+      "description": "Un message utilisateur ou assistant, rendu part par part.",
+      "registryDependencies": [
+        "hermez",
+        "cn",
+        "chat-parts",
+        "chat-types"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chat-message.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-composer",
+      "type": "registry:ui",
+      "title": "Chat IA : saisie",
+      "description": "La zone de saisie : Entrée envoie, Maj+Entrée passe à la ligne, bouton d'arrêt pendant la génération.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "button",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chat-composer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-conversation",
+      "type": "registry:ui",
+      "title": "Chat IA : conversation",
+      "description": "La liste des messages, avec défilement automatique.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "button",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chat-conversation.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-model-selector",
+      "type": "registry:ui",
+      "title": "Chat IA : sélecteur de modèle",
+      "description": "Le sélecteur de modèle : nom, identifiant et prix, recherche, sections récents et fournisseurs.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "button",
+        "cn",
+        "popover",
+        "chat-types"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chat-model-selector.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-header",
+      "type": "registry:ui",
+      "title": "Chat IA : en-tête",
+      "description": "L'en-tête d'une conversation : Nouvelle conversation et accès à l'historique.",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "hermez",
+        "button",
+        "cn",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chat-header.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-history",
+      "type": "registry:ui",
+      "title": "Chat IA : historique",
+      "description": "La liste des conversations passées, avec titre et date.",
+      "registryDependencies": [
+        "hermez",
+        "cn",
+        "chat-types"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chat-history.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat-progress",
+      "type": "registry:ui",
+      "title": "Chat IA : progression",
+      "description": "La barre de progression d'une tâche d'agent, déterminée ou indéterminée.",
+      "registryDependencies": [
+        "hermez",
+        "cn"
+      ],
+      "files": [
+        {
+          "path": "src/ui/chat-progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chat",
+      "type": "registry:ui",
+      "title": "Kit de chat IA",
+      "description": "Tout le kit de chat IA d'un coup (compatible TanStack AI).",
+      "registryDependencies": [
+        "chat-types",
+        "chat-markdown",
+        "chat-parts",
+        "chat-message",
+        "chat-composer",
+        "chat-conversation",
+        "chat-model-selector",
+        "chat-header",
+        "chat-history",
+        "chat-progress"
+      ]
     }
   ]
 }
