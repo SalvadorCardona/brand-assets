@@ -12,10 +12,14 @@
  * produit est donc du vrai texte, juste et entier, et la page le réduit
  * jusqu'à ce qu'il tienne dans sa colonne. Les mascottes sont celles des
  * produits, recopiées telles quelles et jamais redessinées :
- * - `ponos.svg` : `standalone()` de `ponos-robot.js` (the-ponos.app), en clair ;
+ * - `ponos.svg` : la mascotte à plat de `ponos-robot.js` (the-ponos.app), état idle, en clair ;
  * - `leadzy.svg` : `<Leadzy state="repos">` de leadz-ninja, rendu en SVG ;
  * - `opoil.svg` : `pwa/public/logo/opoil-mark.svg` d'opoil, logo maison.
  * Les trois autres glyphes reprennent le trait du symbole Hermez.
+ *
+ * Ponos a un logo à part, le logo A « Écran » (`logoPonos()`) : c'est son
+ * `icon.svg`, ses favicons et la marque de sa bannière et de sa card. La
+ * mascotte ne sert qu'aux états de la page du produit.
  *
  * `CHROME` remplace le binaire (`google-chrome` par défaut).
  */
@@ -79,8 +83,14 @@ function iconBox(p: Product): { w: number; h: number } {
   return { w, h: w / p.mark.ratio }
 }
 
+/** Logo A « Écran » de Ponos, dans le cadre 1024 des autres icônes (les 120 du dessin d'origine réduits au cadre 980). */
+function logoPonos(): string {
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><rect x="22" y="22" width="980" height="980" rx="208" fill="#fff" stroke="${orange}" stroke-width="44"/><g transform="translate(-13 -13) scale(8.75)"><path d="M60 20C67 27 69 32 66 36C64 39 56 39 54 36C51 32 53 27 60 20Z" fill="${orange}"/><rect x="28" y="44" width="64" height="50" rx="16" fill="#1c1917"/><circle cx="48" cy="69" r="7" fill="#FFE1CC"/><circle cx="72" cy="69" r="7" fill="#FFE1CC"/></g></svg>\n`
+}
+
 /** Même tuile que `icon.png`, en vectoriel : la mascotte est incrustée telle quelle. */
 function iconSvg(p: Product): string {
+  if (p.slug === "ponos") return logoPonos()
   const mark = readFileSync(path(new URL(`scripts/visuals/${p.mark.file}`, root)), "utf8").trim()
   const { w, h } = iconBox(p)
   const place = `x="${(1024 - w) / 2}" y="${(1024 - h) / 2}" width="${w}" height="${h}"`
@@ -108,7 +118,7 @@ function banner(p: Product, width: number, height: number, pad: number, markHeig
     .sign img { width: ${Math.round(height * 0.06)}px; height: ${Math.round(height * 0.06)}px; }
   </style>
   <div class="frame">
-    <div class="mark"><img src="${markUrl(p.mark.file)}" alt=""></div>
+    <div class="mark"><img src="${p.slug === "ponos" ? pathToFileURL(path(new URL("projects/ponos/icon.svg", repo))).href : markUrl(p.mark.file)}" alt=""></div>
     <div class="text">
       <div class="name" id="name">${p.name}</div>
       <p class="tagline">${p.tagline}</p>

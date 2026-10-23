@@ -32,7 +32,7 @@ La DA est celle du portfolio de l'agence (<https://hermez.dev>), reprise de `sit
 - **Polices** : Bricolage Grotesque 800 pour les titres et les noms (Fontsource), Outfit 700 pour le logotype Hermez seul. Le texte courant prend la police du système sur le site ; les visuels, eux, composent le sous-titre en Bricolage 500 pour que le rendu ne dépende pas de la machine
 - **Arrondis** : base `0.75rem` ; carré d'icône à 22,5 % de rayon
 - **Fonds** : plats, avec un halo radial de la couleur du produit (18 %) en bas à droite, jamais de dégradé franc ni de texture
-- **Identité produit** : chaque produit garde sa mascotte ou son logo et ne les change pas : le robot Ponos (version grecque : mèche-flamme, tunique ivoire, écharpe terre cuite, fibule dorée), le ninja Leadzy, le logo maison d'Opoil. Les autres ont un glyphe en gros trait arrondi, dans l'esprit du symbole Hermez
+- **Identité produit** : chaque produit garde sa mascotte ou son logo et ne les change pas : le logo « Écran » de Ponos (un écran sombre à deux yeux sous une flamme, dans le cadre du symbole Hermez) et sa mascotte à plat, en trois formes et deux oranges, le ninja Leadzy, le logo maison d'Opoil. Les autres ont un glyphe en gros trait arrondi, dans l'esprit du symbole Hermez
 - **Icône** : 1024 × 1024, carré à coins arrondis, fond blanc, bordure orange de 44 px, mascotte ou glyphe centré
 - **Bannière** : 1536 × 672 — mascotte à gauche, nom du produit en Bricolage 800 (réduit jusqu'à tenir entier dans sa colonne, jamais coupé), sous-titre **en anglais**, signature « A Hermez product », halo en bas à droite
 - **Card** : `card.png`, 1280 × 600 (32:15, le cadre des cards du portfolio), même mise en page avec des marges plus larges pour qu'un recadrage ne morde pas le texte
@@ -44,7 +44,7 @@ Refaits dans cette DA (aperçu : [`previews/products.png`](previews/products.png
 
 | Dossier | Produit | Site | Mascotte / logo | Couleur |
 | --- | --- | --- | --- | --- |
-| `ponos` | Ponos — « Write the ticket. It comes back done. » (« Écrivez le ticket, il revient fait. ») | <https://the-ponos.app> | robot Ponos, version grecque | orange |
+| `ponos` | Ponos — « Write the ticket. It comes back done. » (« Écrivez le ticket, il revient fait. ») | <https://the-ponos.app> | logo « Écran » et mascotte à plat | orange |
 | `leadz-ninja` | Leadz | <https://leadz.ninja> | ninja Leadzy | orange |
 | `react-resource-view` | react-resource-view | <https://hermez.dev/react-resource-view> | glyphe | orange |
 | `react-data-form` | react-data-form | <https://hermez.dev/react-data-form> | glyphe | orange |
@@ -53,7 +53,7 @@ Refaits dans cette DA (aperçu : [`previews/products.png`](previews/products.png
 
 Déjà dans la DA du portfolio, par un autre ticket : `hermez` et `hermez.dev` (logo Hermez, orange sur fond clair).
 
-Les mascottes de Ponos, Leadzy et Opoil sont recopiées de leurs dépôts dans `site/scripts/visuals/`, jamais redessinées. `ticket-runner` est le nom d'avant Ponos : le dossier a disparu.
+La mascotte de Ponos (état idle), celle de Leadzy et le logo d'Opoil sont recopiés de leurs dépôts dans `site/scripts/visuals/`, jamais redessinés. `ticket-runner` est le nom d'avant Ponos : le dossier a disparu.
 
 Pas encore repris dans la DA Hermez (ancien système : fond slate-900, glyphe Lucide sky `#38bdf8`), à refaire par un ticket à part :
 
