@@ -32,7 +32,7 @@ Il n'y a ni test ni lint.
 
 ## Génération des visuels
 
-Les visuels des produits refaits (Ponos, Leadz, react-resource-view, react-data-form, Whisper Desk, Opoil) sont dessinés en HTML et photographiés par Chrome sans tête : `cd site && pnpm visuals:build` (`site/scripts/build-visuals.ts`, mascottes et glyphes dans `site/scripts/visuals/`). Ajouter un produit, c'est ajouter une ligne à `products` et son SVG. Les autres projets gardent leurs anciennes images, générées à la main avec `google/gemini-2.5-flash-image` via OpenRouter, en attendant leur ticket.
+Les visuels des produits refaits (Ponos, Leadz, react-resource-view, react-data-form, Whisper Desk, Opoil) sont dessinés en HTML et photographiés par Chrome sans tête : `cd site && pnpm visuals:build` (`site/scripts/build-visuals.ts`, mascottes et glyphes dans `site/scripts/visuals/`). Ajouter un produit, c'est ajouter une ligne à `products` et son SVG. Ponos fait exception : son icône est le logo A « Écran » (`logoPonos()`), sa mascotte à plat (`ponos.svg`) n'est pas dans les visuels. Les autres projets gardent leurs anciennes images, générées à la main avec `google/gemini-2.5-flash-image` via OpenRouter, en attendant leur ticket.
 
 ## Arborescence
 
