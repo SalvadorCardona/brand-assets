@@ -1,6 +1,7 @@
 import { Component, Fingerprint, LayoutTemplate, Palette, Server } from "lucide-react"
 import type { ScopeMenuEntry } from "react-resource-view"
 import { componentResources } from "./components"
+import chatResource from "./components/chat"
 import logoHermez from "./identity/logo-hermez"
 import landingResource from "./examples/landing"
 import overviewResource from "./overview"
@@ -16,6 +17,7 @@ import typography from "./tokens/typography"
 
 const tokenResources = [colors, brandColors, typography, spacing, radius, shadows, motion]
 const identityResources = [logoHermez]
+const kitResources = [chatResource]
 const implementationResources = [listsResource, adminResource]
 const exampleResources = [landingResource]
 
@@ -26,6 +28,7 @@ export const pages = [
   ...tokenResources,
   ...identityResources,
   ...componentResources,
+  ...kitResources,
   ...implementationResources,
   ...exampleResources,
 ]
@@ -38,7 +41,7 @@ export const menu: ScopeMenuEntry[] = [
   registryResource,
   { name: "Tokens", icon: Palette, items: tokenResources },
   { name: "Identité", icon: Fingerprint, items: identityResources },
-  { name: "Composants", icon: Component, items: componentResources },
+  { name: "Composants", icon: Component, items: [...componentResources, ...kitResources] },
   { name: "Resource View", icon: Server, items: implementationResources },
   { name: "Exemples", icon: LayoutTemplate, items: exampleResources },
 ]

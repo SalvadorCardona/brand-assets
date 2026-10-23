@@ -6,6 +6,7 @@ import { installCommand, registry, registryUrl } from "@/lib/registry"
 import styles from "@/styles.css?raw"
 import { Badge } from "@/ui/badge"
 import { componentResources } from "./components"
+import chatResource from "./components/chat"
 import logoHermez from "./identity/logo-hermez"
 import colors from "./tokens/colors"
 
@@ -39,6 +40,7 @@ const groups: { title: string; intro: string; types: string[] }[] = [
 function pageOf(item: Item) {
   if (item.name === "hermez-theme") return colors
   if (item.name === "hermez-logo") return logoHermez
+  if (item.name.startsWith("chat")) return chatResource
   return componentResources.find((resource) => resource["@id"] === `component-${item.name}`)
 }
 

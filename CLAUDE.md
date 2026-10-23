@@ -23,10 +23,11 @@ Il n'y a ni test ni lint.
 
 - Les tokens vivent dans `site/src/styles.css`, seule source. Les pages de tokens relisent les variables dans le navigateur (`useCssVar`), elles ne les recopient pas.
 - Les composants shadcn sont dans `site/src/ui` (copie de ceux de Resource View).
-- Un seul thème, celui du portfolio de l'agence (`hermez.dev`) : gris « stone », orange `#e46212` (en `#bf4a02` sous un texte blanc), Bricolage Grotesque pour les titres (Fontsource, `src/fonts.ts`), police du système pour le texte. Clair seulement : `dark:` ne dépend que d'une classe `.dark` jamais posée.
+- Un seul thème, celui du portfolio de l'agence (`hermez.dev`) : gris « stone », orange `#e46212` (en `#bf4a02` sous un texte blanc), Bricolage Grotesque pour les titres (Fontsource, `src/fonts.ts`), police du système pour le texte. Clair par défaut : `dark:` ne dépend que d'une classe `.dark` (jeu de tokens sombres dans `styles.css`), que seule la page « Chat IA » pose, le temps de la page.
 - Les titres (`h1`–`h6`) prennent la police, la graisse et l'approche du thème par une règle hors couche dans `styles.css` : elle prime sur les utilitaires `font-semibold` ou `tracking-tight` posés dans les pages.
 - Chaque page est une ressource Resource View (`definePage` dans `src/lib/doc.tsx`) ; le menu est dans `src/pages/index.ts`. Une page par famille de tokens (`src/pages/tokens`) et par composant (`src/pages/components/index.tsx`) : ajouter un token ou un composant, c'est ajouter sa page.
 - Routage en mode `query` (`?view=…`) : GitHub Pages n'a pas de serveur pour les chemins profonds.
+- Kit de chat IA : `src/ui/chat-*.tsx`, présentationnel, aux types de messages TanStack AI (`chat-types.ts`), sans dépendance au paquet ; page de démo `src/pages/components/chat.tsx` (données fictives, tous les états) ; un item `registry.json` par fichier, plus `chat` qui les regroupe.
 - Registry shadcn : `registry.json` déclare les items, `scripts/build-registry.ts` les construit. Les tokens (`registry:theme`) et les règles de base (`registry:style`) sont relus dans `styles.css` et `fonts.ts`, jamais recopiés dans `registry.json`. Un composant ajouté à `src/ui` s'ajoute aussi à `registry.json`.
 - Communication abstraite : une agence digitale avec plusieurs produits, sans mettre un nom de personne en avant.
 

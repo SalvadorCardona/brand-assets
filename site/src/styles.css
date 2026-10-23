@@ -1,8 +1,9 @@
 @import "tailwindcss";
 @source "../node_modules/react-resource-view/dist";
 
-/* Le site est clair seulement : la variante `dark:` des composants ne dépend
-   que d'une classe `.dark` jamais posée, pas du réglage du système. */
+/* Le site est clair par défaut : la variante `dark:` des composants ne dépend
+   que d'une classe `.dark`, pas du réglage du système. Seule la page « Chat IA »
+   la pose, pour montrer le thème sombre. */
 @custom-variant dark (&:is(.dark *));
 
 /*
@@ -79,6 +80,47 @@
   /* Ombres : couleur et intensité */
   --shadow-color: 28 25 23;
   --shadow-strength: 0.08;
+}
+
+/*
+ * Le thème sombre, celui du portfolio : fond #141414, texte en pierre claire,
+ * orange éclairci (#f2803f) qui porte un texte sombre. Il s'active avec la
+ * classe `.dark` sur `<html>` ; ni le site ni le portfolio ne le suivent seuls.
+ */
+.dark {
+  color-scheme: dark;
+
+  --background: #141414;
+  --foreground: #fafaf9;
+  --card: #1c1917;
+  --card-foreground: #fafaf9;
+  --popover: #1c1917;
+  --popover-foreground: #fafaf9;
+  --primary: #f2803f;
+  --primary-foreground: #141414;
+  --secondary: #292524;
+  --secondary-foreground: #e7e5e4;
+  --muted: #292524;
+  --muted-foreground: #a8a29e;
+  --accent: #2b1c12;
+  --accent-foreground: #fafaf9;
+  --destructive: #f87171;
+  --success: #4ade80;
+  --info: #60a5fa;
+  --glory: #a78bfa;
+  --warning: #fbbf24;
+  --border: #292524;
+  --input: #44403c;
+  --ring: #f2803f;
+
+  --chart-1: #f2803f;
+  --chart-2: #2dd4bf;
+  --chart-3: #facc15;
+  --chart-4: #a78bfa;
+  --chart-5: #60a5fa;
+
+  --shadow-color: 0 0 0;
+  --shadow-strength: 0.4;
 }
 
 @theme inline {
